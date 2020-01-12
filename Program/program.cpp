@@ -5,6 +5,7 @@
 #include <conio.h>
 using namespace std;
 
+string encryptDecrypt(string toEncrypt);
 string USER_ID;
 string PASSWORD;
 int type;
@@ -23,18 +24,19 @@ void Register()
  A1:
   cout << "\nEnter a username:";
   cin >> USER_ID;
-  fstream op("../Data/ID_List.txt",ios::in);
+  fstream op("../Data/ID_List.bin",ios::in|ios::binary);
   if(!op)
     {
       cout << "\nFile Not Found!";
       cout << "\nError Code 100";
       cout << "\nProgram Aborting";
-      throw(100);
+      exit(EXIT_FAILURE);
     }
   while(!op.eof())
   {
-    string UID,PWD;
-    op >> UID;
+    string UID,PWD,a;
+    op >> a;
+    UID=encryptDecrypt(a);
     if(UID==USER_ID)
       {
 	op.close();
@@ -60,20 +62,31 @@ void Register()
   cin >> type;
   DD(USER_ID,PASSWORD,type);
   cout << endl;
-  fstream op1("../Data/ID_List.txt",ios::out|ios::app);
-  op1 << USER_ID << "\t" << PASSWORD << "\t" << type << "\n";
+  fstream op1("../Data/ID_List.bin",ios::out|ios::app|ios::binary);
+  if(!op1)
+  {
+      cout << "\nFile Not Found!";
+      cout << "\nError Code 100";
+      cout << "\nProgram Aborting";
+      exit(EXIT_FAILURE);
+  }
+  string enc_usrn, enc_pass;
+  enc_usrn = encryptDecrypt(USER_ID);
+  enc_pass = encryptDecrypt(PASSWORD);
+  op1 << enc_usrn << "\t" << enc_pass << "\t" << type << "\n";
   op1.close();
 }
 void ListUsers()
 {
-  string UID,PWD;
+  string UID,PWD,a;
   int t;
-  fstream login("../Data/ID_List.txt",ios::in);
+  fstream login("../Data/ID_List.bin",ios::in|ios::binary);
   if(!login)
     {
       cout << "\nFile Not Found!";
       cout << "\nError Code 100";
       cout << "\nProgram Aborting";
+      exit(EXIT_FAILURE);
     }
   else
     {
@@ -81,9 +94,10 @@ void ListUsers()
       while(true)
 	{
 	  login >> UID >> PWD >> t;
+          a = encryptDecrypt(UID);
 	  if(login.eof())
 	    break;
-	  DD(UID,PWD,t);
+	  DD(a,PWD,t);
 	  cout << endl;
 	}
     }
@@ -97,7 +111,6 @@ int main()
       cout << "\n--------------------Program Menu--------------------";
       cout << "\n--Choose an option:----";
       cout << "\n1. Register";
-      //cout << "\n2. Login";
       cout << "\n3. Show Users List";
       cout << "\n4. Exit";
       cout << endl;
@@ -112,7 +125,7 @@ int main()
 	  ListUsers();
 	  break;
 	case 4:
-	  exit(0);
+	  exit(EXIT_SUCCESS);
 	}
     }
   return 0;

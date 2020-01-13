@@ -1,0 +1,18 @@
+SPM_Project
+
+Project made by:
+
+Aman Bhai Patel        - github.com/amanbp               - 49
+Shrey Lakhanpal        - github.com/shreylakhanpal4      - 44
+Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
+
+Current Bugs:
+
+	-When there are no users in the member list, option 3 in menu doesnt show the required statement
+
+
+WIP:
+
+	-Attendance system
+	-Menu for different levels of users
+	-Some form of login system 

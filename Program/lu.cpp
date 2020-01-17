@@ -24,7 +24,7 @@ void ListUsers()
 	{
 	  system("CLS");
 	  cout << "\nList of users registered:\n";
-	  login.seekp(0,ios::end);
+	  login.seekp(0,ios:end);
 	  if(login.tellp()==0)
 		  cout << "\nThere are no user currently registered in our database.";
 	  else
@@ -32,8 +32,8 @@ void ListUsers()
 			{
 				login >> UID >> PWD >> t;
 				a = encryptDecrypt(UID);
-					if(login.eof())
-						break;
+				if(login.eof())
+					break;
 				DD(a,PWD,t);
 				cout << endl;
 			}

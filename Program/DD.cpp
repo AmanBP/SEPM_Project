@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void DD(string a,string b, int c)
+void DD(userdata a)
 {
 	cout << "\nDetails:";
-	cout << "\nUsername      : " << a;
-	cout << "\nPassword      : " << b;
-	cout << "\nUser Type     : " << c;
+	cout << "\nUsername      : " << a.Uname;
+	cout << "\nPassword      : " << a.Pass;
+	cout << "\nUser Type     : " << a.type;
 }

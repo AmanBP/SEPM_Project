@@ -3,17 +3,12 @@
 #include <string>
 #include <conio.h>
 #include <stdlib.h>
+#include <cstring>
 using namespace std;
 
-struct userdata
-{
-	string Uname,Pass;
-	int type;
-};
-
 //Custom functions:
-void DD(userdata A);
-string encryptDecrypt(string toEncrypt);
+void DD(string a, string b, int c);
+std::string encryptDecrypt(string toEncrypt);
 void Register();
 void ListUsers();
 
@@ -21,10 +16,10 @@ int main()
 {
 	while(true)
 	{
-	    userdata a;
-		string Pass,Uname;
+		string Pass,Uname,FPass,FUname;
+		int type,Ftype;
    	    system("CLS");
-		fstream  fin("../Data/ID_List.bin",ios::binary|ios::in);
+		fstream  fin("../Data/ID_List.txt",ios::in);
 		if(!fin)
 		{
 			cout << "\nFile Not Found!";
@@ -33,81 +28,105 @@ int main()
 			exit(EXIT_FAILURE);
 		}
 		int ch;
-		cout << "-----------Program Menu---------------"
+		A3:
+		cout << "-----------Program Menu---------------";
 		cout << "\n1. Login";
-		cout << "2. Exit";
-		cout << "Choose an option:";
+		cout << "\n2. Register";
+		cout << "\n3. List Users";
+		cout << "\n4. Exit";
+		cout << "\nChoose an option:";
 		cin >> ch;
-		seitch(ch)
+		switch(ch)
 		{
 		case 1:
 			cout << "\nEnter Username:  \n";
 			cin >> Uname;
-			while(true)
+			fin >> FUname >> FPass >> Ftype;
+			if(Uname.compare(encryptDecrypt(FUname))==0)
 			{
-				fin.read((char*)&a,sizeof(userdata));
-				if(strcmp(a.Uname,encryptDecrypt(Uname)==0))
-				{
-					system("CLS")
-					cout << "\nUser Found!\n\n Welcome " << encryptDecrypt(a.Uname);
+				system("CLS");
+				cout << "\nUser Found!\n\nWelcome " << encryptDecrypt(FUname);
 				A2:
-					cout << "\nPlease enter your Password: ";
-					char c;
-					Pass="";
-					while(c!=13)
+				cout << "\nPlease enter your Password: ";
+				char c;
+				Pass="";
+				while(c!=13)
+				{
+					c=(char)getch();
+					if(c==13)
+						break;
+					if(c==8)
+						continue;
+					Pass+=c;
+					cout << "*";
+				}
+				if(Pass.compare(encryptDecrypt(FPass))==0)
+				{
+					cout << "\nPlease Wait";
+					system("CLS");
+					cout << "\n\nLogged in succesfully.";
+					cout << "\nPlease ";
+					system("PAUSE");
+					system("CLS");
+					switch(Ftype)
 					{
-						c=(char)getch();
-						if(c==13)
+						case 1:
+							//AdminMenu();
+							cout << "AdminMenu";
+							goto A3;
 							break;
-						if(c==8)
-							continue;
-						Pass+=c;
-						cout << "*";
-					}
-					if(strcmp(a.Pass, encryptDecrypt(Pass))==0)
-					{
-						cout << "\nLogged in succesfully.";
-						cout << "\nPlease ";
-						system("PAUSE");
-						system("CLS");
-						switch(a.type)
-						{
-							case 1:
-								AdminMenu();
-								break;
-							case 2:
-								OwnerMenu();
-								break;
-							case 3:
-								AccountantMenu();
-								break;
-							case 4:
-								ReceptionistMenu();
-								break;
-							case 5:
-								Gym_Staff_Menu();
-								break;
-							case 6:
-								Gym_User_Menu();
-								break;
-						}
-					}
-					else
-					{
-						cout << "Incorrect Password!\n";
-						system("PAUSE");
-						goto A2;
+						case 2:
+							//OwnerMenu();
+							cout << "OwnerMenu";
+							goto A3;
+							break;
+						case 3:
+							//AccountantMenu();
+							cout << "AccountantMenu";
+							goto A3;
+							break;
+						case 4:
+							//ReceptionistMenu();
+							cout << "ReceptionistMenu";
+							goto A3;
+							break;
+						case 5:
+							//Gym_Staff_Menu();
+							cout << "Gym_Staff_Menu";
+							goto A3;
+							break;
+						case 6:
+							//Gym_User_Menu();
+							cout << "Gym_User_Menu";
+							goto A3;
+							break;
 					}
 				}
 				else
 				{
-					if(fin.eof())
-						cout << "\nUsername not found, please register or check input.";
+					cout << "Incorrect Password!\n";
+					system("PAUSE");
+					goto A2;
 				}
 			}
+			else
+			{
+				cout << "\nUsername not found, please register or check input.\n";
+				system("PAUSE");
+				break;	
+			}
+			break;
 		case 2:
+			Register();
+			break;
+		case 3:
+			ListUsers();
+			break;
+		case 4:
+			exit(EXIT_SUCCESS);
+		default:
 			exit(EXIT_SUCCESS);
 		}
 	}
-  	return 0;
+ 	return 0;
 }

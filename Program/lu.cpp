@@ -6,13 +6,11 @@
 using namespace std;
 
 void DD(string a, string b, int c);
-string encryptDecrypt(string toEncrypt);
+std::string encryptDecrypt(string toEncrypt);
 
 void ListUsers()
 {
-  string UID,PWD,a;
-  int t;
-  fstream login("../Data/ID_List.bin",ios::in|ios::out|ios::binary);
+  fstream login("../Data/ID_List.txt",ios::in);
   if(!login)
 	{
 	  cout << "\nFile Not Found!";
@@ -22,23 +20,21 @@ void ListUsers()
 	}
   else
 	{
-	  system("CLS");
-	  cout << "\nList of users registered:\n";
-	  login.seekp(0,ios:end);
-	  if(login.tellp()==0)
-		  cout << "\nThere are no user currently registered in our database.";
-	  else
-		  while(true)
-			{
-				login >> UID >> PWD >> t;
-				a = encryptDecrypt(UID);
-				if(login.eof())
-					break;
-				DD(a,PWD,t);
-				cout << endl;
-			}
+		string a,b;
+		int c;
+		system("CLS");
+		cout << "\nList of users registered:\n";
+		while(1)
+		{
+			
+			login >> a >> b >> c;
+			if(login.eof())
+				break;
+			DD(encryptDecrypt(a),b,c);
+			cout << endl;
+		}
 	}
   login.close();
-  cout << "Clearing screen and returning to menu.  ";
+  cout << "\nClearing screen and returning to menu.\n";
   system("PAUSE");
 }

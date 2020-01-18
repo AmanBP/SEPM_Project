@@ -1,10 +1,14 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
-void DD(userdata a)
+
+std::string encryptDecrypt(std::string toEncrypt);
+
+void DD(string a, string b, int c)
 {
 	cout << "\nDetails:";
-	cout << "\nUsername      : " << a.Uname;
-	cout << "\nPassword      : " << a.Pass;
-	cout << "\nUser Type     : " << a.type;
+	cout << "\nUsername      : " << a;
+	cout << "\nPassword      : " << b;
+	cout << "\nUser Type     : " << c;
 }

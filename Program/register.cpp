@@ -25,9 +25,8 @@ void Register()
     }
 	cout << "\nEnter a username:";
 	cin >> USER_ID;
-	while(!op.eof())
+	while(op >> UID >> PASS >> t)
 	{
-		op >> UID >> PASS >> t;
 		UID=encryptDecrypt(UID);
 		if(UID.compare(USER_ID)==0)
 		{

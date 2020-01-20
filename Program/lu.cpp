@@ -24,9 +24,8 @@ void ListUsers()
 		int c;
 		system("CLS");
 		cout << "\nList of users registered:\n";
-		while(1)
+		while(login >> a >> b >> c)
 		{
-			login >> a >> b >> c;
 			if(login.eof())
 				break;
 			DD(encryptDecrypt(a),b,c);

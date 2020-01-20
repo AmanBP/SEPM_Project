@@ -13,7 +13,7 @@ void Register();
 void ListUsers();
 
 int main()
-{
+{	int x=0;
 	while(true)
 	{
 		string Pass,Uname,FPass,FUname;
@@ -41,88 +41,93 @@ int main()
 		case 1:
 			cout << "\nEnter Username:  \n";
 			cin >> Uname;
-			fin >> FUname >> FPass >> Ftype;
-			if(Uname.compare(encryptDecrypt(FUname))==0)
+			while(fin >> FUname >> FPass >> Ftype)
 			{
-				int x=0;
-				system("CLS");
-				cout << "\nUser Found!\n\nWelcome " << encryptDecrypt(FUname);
-				A2:
-				cout << "\nPlease enter your Password: ";
-				char c=char(11);
-				Pass="";
-				while(c!=13)
+				
+				if(Uname.compare(encryptDecrypt(FUname))==0)
 				{
-					c=(char)getch();
-					if(c==13)
-						break;
-					if(c==8)
-						continue;
-					Pass+=c;
-					cout << "*";
-				}
-				if(Pass.compare(encryptDecrypt(FPass))==0)
-				{
-					cout << "\nPlease Wait";
 					system("CLS");
-					cout << "\n\nLogged in succesfully.";
-					cout << "\nPlease ";
-					system("PAUSE");
-					system("CLS");
-					switch(Ftype)
+					cout << "\nUser Found!\n\nWelcome " << encryptDecrypt(FUname);
+					A2:
+					cout << "\nPlease enter your Password: ";
+					char c=char(11);
+					Pass="";
+					while(c!=13)
 					{
-						case 1:
-							//AdminMenu();
-							cout << "AdminMenu";
-							goto A3;
+						c=(char)getch();
+						if(c==13)
 							break;
-						case 2:
-							//OwnerMenu();
-							cout << "OwnerMenu";
+						if(c==8)
+							continue;
+						Pass+=c;
+						cout << "*";
+					}
+					if(Pass.compare(encryptDecrypt(FPass))==0)
+					{
+						cout << "\nPlease Wait";
+						system("CLS");
+						cout << "\n\nLogged in succesfully.";
+						cout << "\nPlease ";
+						system("PAUSE");
+						system("CLS");
+						switch(Ftype)
+						{
+							case 1:
+								//AdminMenu();
+								cout << "AdminMenu";
+								goto A3;
+								break;
+							case 2:
+								//OwnerMenu();
+								cout << "OwnerMenu";
+								goto A3;
+								break;
+							case 3:
+								//AccountantMenu();
+								cout << "AccountantMenu";
+								goto A3;
+								break;
+							case 4:
+								//ReceptionistMenu();
+								cout << "ReceptionistMenu";
+								goto A3;
+								break;
+							case 5:
+								//Gym_Staff_Menu();
+								cout << "Gym_Staff_Menu";
+								goto A3;
+								break;
+							case 6:
+								//Gym_User_Menu();
+								cout << "Gym_User_Menu";
+								goto A3;
+								break;
+						}
+					}
+					else
+					{
+						cout << "\nIncorrect Password!\n";
+						x++;
+						if(x==3)
+						{
+							cout << "\nYou have entered the wrong password 3 times.\nExiting to program menu\n";
+							system("PAUSE");
+							system("CLS");
 							goto A3;
-							break;
-						case 3:
-							//AccountantMenu();
-							cout << "AccountantMenu";
-							goto A3;
-							break;
-						case 4:
-							//ReceptionistMenu();
-							cout << "ReceptionistMenu";
-							goto A3;
-							break;
-						case 5:
-							//Gym_Staff_Menu();
-							cout << "Gym_Staff_Menu";
-							goto A3;
-							break;
-						case 6:
-							//Gym_User_Menu();
-							cout << "Gym_User_Menu";
-							goto A3;
-							break;
+						}
+						system("PAUSE");
+						goto A2;
 					}
 				}
 				else
 				{
-					cout << "\nIncorrect Password!\n";
-					x++;
-					if(x==3)
-					{
-						cout << "\nYou have entered the wrong password 3 times.\nExiting to program menu\n";
-						system("PAUSE");
-						system("CLS");
-						goto A3;
-					}
-					system("PAUSE");
-					goto A2;
+					continue;	
 				}
 			}
-			else
+			if(fin.eof())
 			{
-				cout << "\nUsername not found, please register or check input.\n";
-				system("PAUSE");
-				break;	
+				cout << "/nUsername was not found, please register./n";
+				
 			}
 			break;
 		case 2:

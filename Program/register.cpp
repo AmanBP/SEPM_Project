@@ -15,7 +15,7 @@ void Register()
 	int type,t;
 	cout << "\nRegistering has begun";
 	A1:
-	fstream op("../Data/ID_List.txt",ios::in);
+	fstream op("../Data/ID_List.txt",ios::in|ios::binary);
 	if(!op)
 	{
 		cout << "\nFile Not Found!";
@@ -29,7 +29,7 @@ void Register()
 	{
 		op >> UID >> PASS >> t;
 		UID=encryptDecrypt(UID);
-		if(UID==USER_ID)
+		if(UID.compare(USER_ID)==0)
 		{
 			op.close();
 			cout << endl << "This user ID has been taken, Please enter a new ID:";
@@ -45,14 +45,14 @@ void Register()
 	cout << "\n\nYou have entered the following ";
 	DD(USER_ID,PASSWORD,type);
 	cout << endl;
-	fstream op1("../Data/ID_List.txt",ios::out|ios::app);
+	fstream op1("../Data/ID_List.txt",ios::out|ios::app|ios::binary);
 	if(!op1)
 	{
 		cout << "\nFile Not Found!";
 		cout << "\nError Code 100";
 		cout << "\nProgram Aborting";
 		exit(EXIT_FAILURE);
-	}	
+	}
 	cout << "\nSaving data to file\n";
 	op1 << encryptDecrypt(USER_ID) << " " << encryptDecrypt(PASSWORD) << " " << type << "\n";
 	op1.close();

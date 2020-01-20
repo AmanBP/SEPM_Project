@@ -19,7 +19,7 @@ int main()
 		string Pass,Uname,FPass,FUname;
 		int type,Ftype;
    	    system("CLS");
-		fstream  fin("../Data/ID_List.txt",ios::in);
+		fstream  fin("../Data/ID_List.txt",ios::in|ios::binary);
 		if(!fin)
 		{
 			cout << "\nFile Not Found!";
@@ -44,11 +44,12 @@ int main()
 			fin >> FUname >> FPass >> Ftype;
 			if(Uname.compare(encryptDecrypt(FUname))==0)
 			{
+				int x=0;
 				system("CLS");
 				cout << "\nUser Found!\n\nWelcome " << encryptDecrypt(FUname);
 				A2:
 				cout << "\nPlease enter your Password: ";
-				char c;
+				char c=char(11);
 				Pass="";
 				while(c!=13)
 				{
@@ -104,7 +105,15 @@ int main()
 				}
 				else
 				{
-					cout << "Incorrect Password!\n";
+					cout << "\nIncorrect Password!\n";
+					x++;
+					if(x==3)
+					{
+						cout << "\nYou have entered the wrong password 3 times.\nExiting to program menu\n";
+						system("PAUSE");
+						system("CLS");
+						goto A3;
+					}
 					system("PAUSE");
 					goto A2;
 				}

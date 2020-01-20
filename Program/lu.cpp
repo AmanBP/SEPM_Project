@@ -10,7 +10,7 @@ std::string encryptDecrypt(string toEncrypt);
 
 void ListUsers()
 {
-  fstream login("../Data/ID_List.txt",ios::in);
+  fstream login("../Data/ID_List.txt",ios::in|ios::binary);
   if(!login)
 	{
 	  cout << "\nFile Not Found!";
@@ -26,7 +26,6 @@ void ListUsers()
 		cout << "\nList of users registered:\n";
 		while(1)
 		{
-			
 			login >> a >> b >> c;
 			if(login.eof())
 				break;

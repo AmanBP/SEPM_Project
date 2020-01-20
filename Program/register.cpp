@@ -22,7 +22,7 @@ void Register()
 		cout << "\nError Code 100";
 		cout << "\nProgram Aborting";
 		exit(EXIT_FAILURE);
-    }
+	}
 	cout << "\nEnter a username:";
 	cin >> USER_ID;
 	while(op >> UID >> PASS >> t)

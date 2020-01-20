@@ -4,13 +4,14 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
 
 //Custom functions:
+void AdminMenu();
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
-void Register();
-void ListUsers();
+
 
 int main()
 {	int x=0;
@@ -29,11 +30,10 @@ int main()
 		}
 		int ch;
 		A3:
+		system("CLS");
 		cout << "-----------Program Menu---------------";
 		cout << "\n1. Login";
-		cout << "\n2. Register";
-		cout << "\n3. List Users";
-		cout << "\n4. Exit";
+		cout << "\n2. Exit";
 		cout << "\nChoose an option:";
 		cin >> ch;
 		switch(ch)
@@ -43,7 +43,6 @@ int main()
 			cin >> Uname;
 			while(fin >> FUname >> FPass >> Ftype)
 			{
-				
 				if(Uname.compare(encryptDecrypt(FUname))==0)
 				{
 					system("CLS");
@@ -73,8 +72,7 @@ int main()
 						switch(Ftype)
 						{
 							case 1:
-								//AdminMenu();
-								cout << "AdminMenu";
+								AdminMenu();
 								goto A3;
 								break;
 							case 2:
@@ -120,23 +118,12 @@ int main()
 					}
 				}
 				else
-				{
-					continue;	
-				}
+					continue;
 			}
 			if(fin.eof())
-			{
 				cout << "/nUsername was not found, please register./n";
-				
-			}
 			break;
 		case 2:
-			Register();
-			break;
-		case 3:
-			ListUsers();
-			break;
-		case 4:
 			exit(EXIT_SUCCESS);
 		default:
 			exit(EXIT_SUCCESS);

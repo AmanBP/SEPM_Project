@@ -76,26 +76,21 @@ int main()
 								goto A3;
 								break;
 							case 2:
-								//OwnerMenu();
-								cout << "OwnerMenu";
-								goto A3;
-								break;
-							case 3:
 								//AccountantMenu();
 								cout << "AccountantMenu";
 								goto A3;
 								break;
-							case 4:
+							case 3:
 								//ReceptionistMenu();
 								cout << "ReceptionistMenu";
 								goto A3;
 								break;
-							case 5:
+							case 4:
 								//Gym_Staff_Menu();
 								cout << "Gym_Staff_Menu";
 								goto A3;
 								break;
-							case 6:
+							case 5:
 								//Gym_User_Menu();
 								cout << "Gym_User_Menu";
 								goto A3;

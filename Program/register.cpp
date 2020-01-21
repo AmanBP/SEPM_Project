@@ -39,8 +39,15 @@ void Register()
 	cout << "\nUsername Is available";
 	cout << "\nPlease Enter a password:";
 	cin >> PASSWORD;
-	cout << "\n\n\nEnter a user type:\n1.Admin\n2.Owner\n3.Accountant\n4.Receptionist\n5.Gym Staff\n6.Gym User\t:";
-	cin >> type;
+	cout << "\n\n\nEnter a user type:\n1.Admin & Owner\n2.Accountant\n3.Receptionist\n4.Gym Staff\n5.Gym User\t:";
+	while(true)
+	{
+		cin >> type;
+		if(type>=1 && type<=5)
+			break;
+		else 
+			cout << "\nPlease enter a correct type:";
+	}
 	cout << "\n\nYou have entered the following ";
 	DD(USER_ID,PASSWORD,type);
 	cout << endl;

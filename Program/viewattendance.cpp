@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
+#include <string.h>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,6 +14,8 @@ void ViewAttendance()
 		cout << "/nExiting Program";
 		exit(EXIT_FAILURE);
 	}
-	cout << "/nAttendance:";
-	cout 
+	cout << "Enter a UserID to show attendance for:"
+	string uid,fuid;
+	cin >> uid;
+	while(fin >> fuid)
 }

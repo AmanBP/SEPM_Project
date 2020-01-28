@@ -5,10 +5,10 @@ using namespace std;
 void ListUsers();
 void Register();
 //void ViewAttendance();
-//void ChangeRates();
 //void TransLogs();
 //void Backup();
 
+void CRates();
 
 void AdminMenu()
 {
@@ -32,7 +32,7 @@ void AdminMenu()
 //				ViewAttendance();
 				break;
 			case 2:
-//				ChangeRates();
+				CRates();
 				break;
 			case 3:
 				Register();

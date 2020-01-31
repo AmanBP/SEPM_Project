@@ -20,10 +20,12 @@ Done:
 		-Change Rates
 		-View Rates
 
+
 ## To run the program :
 Download and extract the zip into a folder
 CMD to that folder and use the following g++ command:
-...	
+
+```	
 $g++ program.cpp adminmenu.cpp viewrates.cpp lu.cpp DD.cpp encryptor.cpp register.cpp changerates.cpp viewattendance.cpp -o program.exe
 
 For Windows:
@@ -32,4 +34,4 @@ $program.exe
 In Git-Windows:
 Make sure the folder you are in is ../Program/
 $start program.exe
-...
+```

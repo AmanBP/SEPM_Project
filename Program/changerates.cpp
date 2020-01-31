@@ -29,8 +29,8 @@ void CRates()
 			cout << "\n   Membership Fees \t\t" << mr << "\t\t" <<  qr << "\t\t" << hyr << "\t\t" << yr;
 			cout << "\n   Gym Trainer Fees\t\t" << gtrmr << "\t\t" << gtrqr << "\t\t" << gtrhyr << "\t\t" << gtryr;
 			cout << "\n   Dietician Fees  \t\t" << drmr << "\t\t" << drqr << "\t\t" << drhyr << "\t\t" << dryr;
-			cout << "\n\n1.Membership Fees\n2.Gym Trainer Fees\n3.Dietician Rate:";
-			cout << "\nWhich Rate would you like to change?";
+			cout << "\n\n1.Membership Fees\n2.Gym Trainer Fees\n3.Dietician Rate";
+			cout << "\nWhich Rate would you like to change? :";
 			int ch,a;
 			cin >> ch;
 			switch(ch)
@@ -135,6 +135,7 @@ void CRates()
 					}
 					break;
 			}
+			label1:
 			fin.close();
 			fin.open("../Data/rates.txt",ios::out);
 			cout <<"\nWriting data to file.\n";

@@ -39,6 +39,7 @@ int main()
 		switch(ch)
 		{
 		case 1:
+			system("CLS");
 			cout << "\nEnter Username:  \n";
 			cin >> Uname;
 			while(fin >> FUname >> FPass >> Ftype)
@@ -77,22 +78,22 @@ int main()
 								break;
 							case 2:
 								//AccountantMenu();
-								cout << "AccountantMenu";
+								cout << "AccountantMenu-WIP";
 								goto A3;
 								break;
 							case 3:
 								//ReceptionistMenu();
-								cout << "ReceptionistMenu";
+								cout << "ReceptionistMenu-WIP";
 								goto A3;
 								break;
 							case 4:
 								//Gym_Staff_Menu();
-								cout << "Gym_Staff_Menu";
+								cout << "Gym_Staff_Menu-WIP";
 								goto A3;
 								break;
 							case 5:
 								//Gym_User_Menu();
-								cout << "Gym_User_Menu";
+								cout << "Gym_User_Menu-WIP";
 								goto A3;
 								break;
 						}

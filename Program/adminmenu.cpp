@@ -7,7 +7,7 @@ void Register();
 //void ViewAttendance();
 //void TransLogs();
 //void Backup();
-
+void VRates();
 void CRates();
 
 void AdminMenu()
@@ -23,7 +23,8 @@ void AdminMenu()
 		cout << "\n4.List Users";
 		cout << "\n5.Access Transaction Logs";
 		cout << "\n6.Create Backups";
-		cout << "\n7.Log Out";
+		cout << "\n7.View Rates";
+		cout << "\n8.Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
@@ -47,6 +48,9 @@ void AdminMenu()
 //				Backup();
 				break;
 			case 7:
+				VRates();
+				break;
+			case 8:
 				return;
 				break;
 			default:

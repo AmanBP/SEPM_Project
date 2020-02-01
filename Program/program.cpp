@@ -9,6 +9,7 @@ using namespace std;
 
 //Custom functions:
 void AdminMenu();
+void AccountantMenu();
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
 
@@ -77,8 +78,7 @@ int main()
 								goto A3;
 								break;
 							case 2:
-								//AccountantMenu();
-								cout << "AccountantMenu-WIP";
+								AccountantMenu();
 								goto A3;
 								break;
 							case 3:

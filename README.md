@@ -8,7 +8,6 @@ Shrey Lakhanpal        - github.com/shreylakhanpal4      - 44
 Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
 ## WIP:
-
 ```	-Attendance system
 	-Per User Type Menus
 	-Logging System

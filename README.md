@@ -2,16 +2,20 @@
 Project by:
 
 Aman Bhai Patel        - github.com/amanbp               - 49
+
 Shrey Lakhanpal        - github.com/shreylakhanpal4      - 44
+
 Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
-WIP:
+## WIP:
 
-	-Attendance system
+```	-Attendance system
 	-Per User Type Menus
 	-Logging System
+```
 
-Done:
+## Done:
+```
 	-Main Menu
 	-Login system
 	-Admin Menu
@@ -19,7 +23,7 @@ Done:
 	-List Users
 	-Change Rates
 	-View Rates
-
+```
 
 ## To run the program :
 Download and extract the zip into a folder

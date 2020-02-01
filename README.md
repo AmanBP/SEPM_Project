@@ -15,10 +15,10 @@ Done:
 	-Main Menu
 	-Login system
 	-Admin Menu
-		-Register
-		-List Users
-		-Change Rates
-		-View Rates
+	-Register
+	-List Users
+	-Change Rates
+	-View Rates
 
 
 ## To run the program :

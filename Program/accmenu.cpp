@@ -15,7 +15,7 @@ void AccountantMenu()
 		cout << "\n-------------------------Accountant Menu----------------------------";
 		cout << "\n1.Do a Transaction";
 		cout << "\n2.View Transaction Logs";
-		cout << "\n3.View Rates"
+		cout << "\n3.View Rates";
 		cout << "\n4.Log Out";
 		cout << "\n:";
 		cin >> choice;

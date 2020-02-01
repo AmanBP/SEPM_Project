@@ -30,13 +30,12 @@ CMD to that folder and use the following g++ command:
 
 
 ```
-$g++ program.cpp adminmenu.cpp viewrates.cpp lu.cpp DD.cpp encryptor.cpp register.cpp changerates.cpp viewattendance.cpp -o program.exe
+In ../Program/ folder:
+$g++ accmenu.cpp adminmenu.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp musers.cpp program.cpp register.cpp viewattendance.cpp viewrates.cpp -o program.exe
 
 For Windows:
-Make sure the folder you are in is ../Program/
 $program.exe
 
 In Git-Windows:
-Make sure the folder you are in is ../Program/
 $start program.exe
 ```

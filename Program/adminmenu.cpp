@@ -9,6 +9,7 @@ void Register();
 //void Backup();
 void VRates();
 void CRates();
+void MUsers();
 
 void AdminMenu()
 {
@@ -19,12 +20,11 @@ void AdminMenu()
 		cout << "\n-------------------------Admin & Owner Menu----------------------------";
 		cout << "\n1.View Attendance";
 		cout << "\n2.Change Rates";
-		cout << "\n3.Register";
-		cout << "\n4.List Users";
-		cout << "\n5.Access Transaction Logs";
-		cout << "\n6.Create Backups";
-		cout << "\n7.View Rates";
-		cout << "\n8.Log Out";
+		cout << "\n3.User Options";
+		cout << "\n4.Access Transaction Logs";
+		cout << "\n5.Create Backups";
+		cout << "\n6.View Rates";
+		cout << "\n7.Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
@@ -36,21 +36,18 @@ void AdminMenu()
 				CRates();
 				break;
 			case 3:
-				Register();
+				MUsers();
 				break;
 			case 4:
-				ListUsers();
-				break;
-			case 5:
 //				TransLogs();
 				break;
-			case 6:
+			case 5:
 //				Backup();
 				break;
-			case 7:
+			case 6:
 				VRates();
 				break;
-			case 8:
+			case 7:
 				return;
 				break;
 			default:

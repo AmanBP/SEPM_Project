@@ -14,8 +14,8 @@ void ViewAttendance()
 		cout << "/nExiting Program";
 		exit(EXIT_FAILURE);
 	}
-	cout << "Enter a UserID to show attendance for:"
-	string uid,fuid;
-	cin >> uid;
-	while(fin >> fuid)
+	cout << "Enter a UserID to show attendance for:";
+	//string uid,fuid;
+	//cin >> uid;
+	//while(fin >> fuid)
 }

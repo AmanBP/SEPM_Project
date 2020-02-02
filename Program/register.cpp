@@ -9,7 +9,7 @@ void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
 
 
-void Register()
+void Register(int x)
 {
 	string PASSWORD,USER_ID,UID,PASS;
 	int type,t;
@@ -39,12 +39,20 @@ void Register()
 	cout << "\nUsername Is available";
 	cout << "\nPlease Enter a password:";
 	cin >> PASSWORD;
-	cout << "\n\n\nEnter a user type:\n1.Admin & Owner\n2.Accountant\n3.Receptionist\n4.Gym Staff\n5.Gym User\t:";
+	if(x==1)
+		cout << "\n\n\nEnter a user type:\n1.Admin & Owner\n2.Accountant\n3.Receptionist\n4.Gym Staff\n5.Gym User\t:";
+	else
+		cout << "\n\n\nEnter a user type:\n1.Gym Staff\n2.Gym User:\t";
 	while(true)
 	{
 		cin >> type;
-		if(type>=1 && type<=5)
+		if(type>=1 && type<=5 && x==1)
 			break;
+		else if(type>=1 && type<=2 && x==2)
+			{
+				type+=3;
+				break;
+			}
 		else 
 			cout << "\nPlease enter a correct type:";
 	}

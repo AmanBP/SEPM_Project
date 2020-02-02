@@ -2,18 +2,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void ListUsers();
-void Register();
 //void ViewAttendance();
 //void TransLogs();
 //void Backup();
 void VRates();
 void CRates();
 void MUsers();
+void ViewComplaints();
 
 void AdminMenu()
 {
-	int choice=8;
+	int choice=9;
 	while(true)
 	{
 		system("CLS");
@@ -24,7 +23,8 @@ void AdminMenu()
 		cout << "\n4.Access Transaction Logs";
 		cout << "\n5.Create Backups";
 		cout << "\n6.View Rates";
-		cout << "\n7.Log Out";
+		cout << "\n7.View Complaints";
+		cout << "\n8.Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
@@ -48,6 +48,9 @@ void AdminMenu()
 				VRates();
 				break;
 			case 7:
+				ViewComplaints();
+				break;
+			case 8:
 				return;
 				break;
 			default:

@@ -16,7 +16,8 @@ void AccountantMenu()
 		cout << "\n1.Do a Transaction";
 		cout << "\n2.View Transaction Logs";
 		cout << "\n3.View Rates";
-		cout << "\n4.Log Out";
+		cout << "\n4.Check Account Status";
+		cout << "\n5.Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
@@ -31,6 +32,9 @@ void AccountantMenu()
 				VRates();
 				break;
 			case 4:
+//				CheckBal();
+				break;
+			case 5:
 				return;
 				break;
 			default:

@@ -7,7 +7,7 @@ using namespace std;
 
 void ViewComplaints()
 {
-	fstream.fin("../Data/Complaints.txt",ios::in);
+	fstream fin("../Data/Complaints.txt",ios::in);
 	if(!fin)
 	{
 		cout << "\nFile Not Found!";
@@ -18,7 +18,7 @@ void ViewComplaints()
 	else
 	{
 		string ftext;
-		cout << "\nCurrent complaints are:"
+		cout << "\nCurrent complaints are:";
 		while(fin >> ftext)
 		{
 			break;

@@ -31,7 +31,7 @@ CMD to that folder and use the following g++ command:
 
 ```
 In ../Program/ folder:
-$g++ accmenu.cpp adminmenu.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp musers.cpp program.cpp register.cpp viewattendance.cpp viewrates.cpp -o program.exe
+$g++ *.cpp -o program.exe
 
 For Windows:
 $program.exe

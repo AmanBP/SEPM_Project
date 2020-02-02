@@ -53,11 +53,14 @@ void Register(int x)
 				type+=3;
 				break;
 			}
-		else 
+		else
 			cout << "\nPlease enter a correct type:";
 	}
 	cout << "\n\nYou have entered the following ";
-	DD(USER_ID,PASSWORD,type);
+	if(x==1)
+		DD(USER_ID,PASSWORD,type);
+	else
+		DD(USER_ID,PASSWORD,type-3);
 	cout << endl;
 	fstream op1("../Data/ID_List.txt",ios::out|ios::app|ios::binary);
 	if(!op1)

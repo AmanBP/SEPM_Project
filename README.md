@@ -32,10 +32,5 @@ CMD to that folder and use the following g++ command:
 ```
 In ../Program/ folder:
 $g++ *.cpp -o program.exe
-
-For Windows:
 $program.exe
-
-In Git-Windows:
-$start program.exe
 ```

@@ -17,11 +17,15 @@ void ViewComplaints()
 	}
 	else
 	{
+		system("CLS");
 		string ftext;
-		cout << "\nCurrent complaints are:";
+		int i=0;
+		cout << "\nComplaints/Suggestions registered are :";
 		while(fin >> ftext)
 		{
-			break;
+			if(fin.eof())
+				break;
+			cout << i+1 << ". " << ftext << "\n";
 		}
 	}
 }

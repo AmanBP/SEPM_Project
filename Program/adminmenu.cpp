@@ -1,4 +1,4 @@
-#include <iostream>
+\#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -23,7 +23,7 @@ void AdminMenu()
 		cout << "\n4.Access Transaction Logs";
 		cout << "\n5.Create Backups";
 		cout << "\n6.View Rates";
-		cout << "\n7.View Complaints";
+		cout << "\n7.View Complaints/Suggestions";
 		cout << "\n8.Log Out";
 		cout << "\n:";
 		cin >> choice;

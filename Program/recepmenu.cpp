@@ -4,7 +4,10 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+
+void MakeComp();
 void Register(int x);
+
 void ReceptionistMenu()
 {
 	while(true)
@@ -13,7 +16,7 @@ void ReceptionistMenu()
 		cout << "---------------Receptionist Menu------------------";
 		cout << "\n1.Register";
 		cout << "\n2.Recieve Fees";
-		cout << "\n3.Complaint";
+		cout << "\n3.Complaint/Suggestion";
 		cout << "\n4.Logout";
 		cout << "\n:";
 		int ch;
@@ -27,7 +30,7 @@ void ReceptionistMenu()
 				//Fees();
 				break;
 			case 3:
-				//MakeComp();
+				MakeComp();
 				break;
 			case 4:
 				return;

@@ -13,7 +13,7 @@ void  MakeComp()
 	{
 		cout << "\nFile Not Found!";
 		cout << "\nError Code 100";
-		cout << "\Program Aborting";
+		cout << "\nProgram Aborting";
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -23,8 +23,10 @@ void  MakeComp()
 		cout << "\nWhat would you like to Complain/Suggest to us?\n";
 		cin >> a;
 		cout << "\n Your Complaint/Suggestion has been logged.";
-		fin >> a >> "\n";
+		fin << a << "\n";
 		fin.close();
+		cout << endl;
+		system("Pause");
 	}
 	return;
 }

@@ -20,12 +20,15 @@ void ViewComplaints()
 		system("CLS");
 		string ftext;
 		int i=0;
-		cout << "\nComplaints/Suggestions registered are :";
+		cout << "\nComplaints/Suggestions registered are :\n\n";
 		while(fin >> ftext)
 		{
 			if(fin.eof())
 				break;
 			cout << i+1 << ". " << ftext << "\n";
 		}
+		cout << endl;
+		system("Pause");
+		fin.close();
 	}
 }

@@ -117,7 +117,7 @@ int main()
 					continue;
 			}
 			if(fin.eof())
-				cout << "/nUsername was not found, please register./n";
+				cout << "\nUsername was not found, please register or try again.\n";
 			break;
 		case 2:
 			exit(EXIT_SUCCESS);

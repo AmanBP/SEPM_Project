@@ -13,15 +13,10 @@ int main()
     exit = sqlite3_open("../Data/employeedb.db", &db); 
   
     // Test if there was an error
-    if (exit) { 
-        
+    if (exit)
         cout << "DB Open Error: " << sqlite3_errmsg(db) << endl; 
-        
-    } else {
-
+    else
         cout << "Opened Database Successfully!" << endl; 
-    }
-    
     // Close the connection
     sqlite3_close(db); 
     

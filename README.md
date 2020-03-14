@@ -28,7 +28,8 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 Download this file:
 <a href="https://drive.google.com/file/d/1hvT45-EnIqboEJlwCc3zhBRLDJ8sz7GW/view?usp=sharing"><img alt="Download" src="https://badgen.net/badge/Download/GDrive/green?icon=https://www.svgrepo.com/show/139610/download.svg"></a>
 
-and place it into the Headers folder\n
+and place it into the Headers folder
+
 CMD into the Programs folder and use the following g++ command:
 
 ```

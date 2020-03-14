@@ -34,7 +34,7 @@ Download this file:
 Download and extract the project
 </p>
 <p>
-Create a folder named Headers
+In the extracted folder, create a folder named Headers
 </p>
 <p>
 Place tha above file into the Headers folder

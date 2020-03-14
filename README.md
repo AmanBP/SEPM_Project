@@ -8,8 +8,9 @@ Shrey Lakhanpal        - github.com/shreylakhanpal4      - 44
 Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
 ## WIP:
-```	-Attendance system(3/4 done!!!)
-	-Per User Type Menus(5/6 done!!!)
+```	
+	-Attendance system
+	-Per User Type Menus
 	-Logging System
 ```
 
@@ -26,11 +27,21 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
 ## To run the program :
 Download this file:
+<p>
 <a href="https://drive.google.com/file/d/1hvT45-EnIqboEJlwCc3zhBRLDJ8sz7GW/view?usp=sharing"><img alt="Download" src="https://badgen.net/badge/Download/GDrive/green?icon=https://www.svgrepo.com/show/139610/download.svg"></a>
-
-and place it into the Headers folder
-
+</p>
+<p>
+Download and extract the project
+</p>
+<p>
+Create a folder named Headers
+</p>
+<p>
+Place tha above file into the Headers folder
+</p>
+<p>
 CMD into the Programs folder and use the following g++ command:
+</p>
 
 ```
 $g++ *.cpp -l sqlite3

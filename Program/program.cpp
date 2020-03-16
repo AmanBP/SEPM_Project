@@ -15,7 +15,8 @@ std::string encryptDecrypt(string toEncrypt);
 void ReceptionistMenu();
 
 int main()
-{	int x=0;
+{	
+	int x=0;
 	while(true)
 	{
 		string Pass,Uname,FPass,FUname;

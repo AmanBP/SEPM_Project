@@ -1,20 +1,16 @@
 #include "../headers/sqlite3.h"
 #include <bits/stdc++.h>
 #include <string.h>
+#include <fstream>
+#include <stdlib.h>
 using namespace std;
+
+std::string encryptDecrypt(string toEncrypt);
 
 string getString(char x) 
 { 
     string s(1, x);  
     return s;    
-}
-
-template <typename T>
-std::string NumberToString ( T Number )
-{
-    std::ostringstream ss;
-    ss << Number;
-    return ss.str();
 }
 
 string getproperdate(string a)
@@ -47,7 +43,7 @@ void createdatetable(string a)
     sqlite3 *db;
     string sqlcommand;
     string part1("CREATE TABLE date_");
-    string part2("(ID INT,pora CHARACTER(1));");
+    string part2("(ID VARCHAR(100),pora CHARACTER(1));");
     rc = sqlite3_open("../Data/attendance.db", &db);
     if(rc)
         fprintf(stderr, "\nCan't open database: %s\n", sqlite3_errmsg(db));
@@ -55,9 +51,8 @@ void createdatetable(string a)
         fprintf(stdout, "\nOpened database successfully");
     sqlcommand = part1 + properdate + part2;
     char p[sqlcommand.length()];
-    for (i = 0; i < sizeof(p); i++)
+    for (i = 0; i <sizeof(p)+1; i++)
         p[i] = sqlcommand[i];
-    cout << endl << p;
     rc = sqlite3_exec(db, p, 0, 0, &zErrMsg);
     if( rc != SQLITE_OK )
     {
@@ -69,7 +64,7 @@ void createdatetable(string a)
     sqlite3_close(db);
 }
 
-void insertdatetable(string a,int ID,char PorA)
+void insertdatetable(string a,string name,char PorA)
 {
     int i,rc;
     string properdate = getproperdate(a);
@@ -77,17 +72,17 @@ void insertdatetable(string a,int ID,char PorA)
     sqlite3 *db;
     string sqlcommand;
     string part1( "INSERT INTO date_");
-    string part2( "(ID,pora) VALUES(");
-    string part3( ",'" );
-    string part4( "');" );
+    string part2( "(ID,pora) VALUES('");
+    string part3( "','");
+    string part4( "');");
     rc = sqlite3_open("../Data/attendance.db", &db);
     if(rc)
         fprintf(stderr, "\nCan't open database: %s\n", sqlite3_errmsg(db));
     else
         fprintf(stdout, "\nOpened database successfully");
-    sqlcommand = part1 + properdate + part2 + NumberToString(ID) + part3 + getString(PorA) + part4;
+    sqlcommand = part1 + properdate + part2 + name + part3 + getString(PorA) + part4;
     char p[sqlcommand.length()];
-    for (i = 0; i < sizeof(p); i++)
+    for (i = 0; i < sizeof(p)+1; i++)
         p[i] = sqlcommand[i];
     rc = sqlite3_exec(db, p, 0, 0, &zErrMsg);
     if( rc != SQLITE_OK )
@@ -100,6 +95,49 @@ void insertdatetable(string a,int ID,char PorA)
     sqlite3_close(db);
 }
 
+bool checkiftableexists(string date)
+{
+    bool res;
+    date = getproperdate(date);
+    string part1("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='date_");
+    string part3("'");
+    string command;
+    sqlite3 *db;
+    sqlite3_stmt *stmt;
+    int i,rc,output;
+    command = part1 + date + part3;
+    char p[command.length()];
+    for (i = 0; i < sizeof(p)+1; i++)
+        p[i] = command[i];
+    rc = sqlite3_open("../Data/attendance.db", &db);
+    if(rc)
+        fprintf(stderr, "\nCan't open database: %s\n", sqlite3_errmsg(db));
+    else
+        fprintf(stdout, "\nOpened database successfully");
+    sqlite3_prepare(db, p, sizeof(p), &stmt, NULL);
+    bool done = false;
+    while (!done) 
+    {
+        switch (sqlite3_step (stmt)) 
+        {
+            case SQLITE_ROW:
+                output = sqlite3_column_int(stmt,0);
+                break;
+
+            case SQLITE_DONE:
+                done = true;
+                break;
+
+            default:
+                fprintf(stderr, "Failed.\n");
+                break;
+        }
+    }
+    if(output == 0)
+        return false;
+    else
+        return true;
+}
 void getattendanceofdate(string a)
 {
     string properdate = getproperdate(a);
@@ -107,23 +145,26 @@ void getattendanceofdate(string a)
     sqlite3_stmt *stmt;
     sqlite3 *db;
     bool done = false;
-    const unsigned char* text;
-    long long int id;
+    const unsigned char *text, *id;
     string sqlcommand;
     string part1("SELECT * FROM date_");
     sqlcommand = part1 + properdate;
     cout << endl << "\nHere are the attendances of " << a << ":\n";
     char p[sqlcommand.length()];
-    for (i = 0; i < sizeof(p); i++)
+    for (i = 0; i < sizeof(p)+1; i++)
         p[i] = sqlcommand[i];
-    sqlite3_open("../Data/attendance.db",&db);
+    rc = sqlite3_open("../Data/attendance.db", &db);
+    if(rc)
+        fprintf(stderr, "\nCan't open database: %s\n", sqlite3_errmsg(db));
+    else
+        fprintf(stdout, "\nOpened database successfully");;
     sqlite3_prepare(db, p, sizeof(p), &stmt, NULL);
     while (!done) {
         switch (sqlite3_step (stmt)) {
         case SQLITE_ROW:
-            id = sqlite3_column_int(stmt,0);
+            id = sqlite3_column_text(stmt,0);
             text  = sqlite3_column_text(stmt, 1);
-            printf ("ID: %lld was %s \n", id, text);
+            printf ("ID: %s was %s \n", id, text);
             break;
 
         case SQLITE_DONE:
@@ -137,4 +178,129 @@ void getattendanceofdate(string a)
     }
     sqlite3_finalize(stmt);
     sqlite3_close(db);
+}
+
+void AttendanceHandler()
+{
+    string date,a,b,c,uname;
+    int choice;
+    char ans = 'y',PorA;  
+    while(ans == 'y' || ans == 'Y')
+    {
+        topattendance:
+        system("CLS");
+        cout << "\nAttendance Menu:";
+        cout << "\n1. Create Entry of a date";
+        cout << "\n2. Insert attendance into a date";
+        cout << "\n3. View Attendance of a date";
+        cout << "\n4. Check if date entry exists";
+        cout << "\nEnter a choice: ";
+        cin >> choice;
+        switch(choice)
+        {
+            case 1: 
+                    cout << "\nPlease enter a date in (DD MM YYYY format, braces allowed are ('_','-','\\','/')):";
+                    cin >> date;
+                    cout << "\nCreating an Entry for :" << date;
+                    createdatetable(date);
+                    break;
+
+            case 2: 
+                    cout << "\nPlease enter a date to enter attendance into:";
+                    cin >> date;
+                    bool exist;
+                    exist = checkiftableexists(date);
+                    if(exist)
+                    {
+                        cout << "\nDate Entry found";
+                    }
+                    else
+                    {
+                        cout << "\nDate Entry not found, want to create an entry?(y/n)";
+                        char choose;
+                        cin >> choose;
+                        if(choose == 'y' || choose == 'Y')
+                            createdatetable(date);
+                        else                        
+                        {   
+                            cout << "\nReturning to attendance menu.";
+                            goto topattendance;
+                        }
+                    }
+                    cout << "\nPlease enter number of entries to be entered: ";
+                    int num_entries;
+                    cin >> num_entries;
+                    for(int i = 0;i<num_entries;i++)
+                    {   
+                        tryagainuname:
+                        int flag = 0;
+                        fstream login("../Data/ID_List.txt",ios::in|ios::binary);
+                        if(!login)
+	                    {
+	                        cout << "\nFile Not Found!";
+                            cout << "\nError Code 100";
+	                        cout << "\nProgram Aborting";
+	                        exit(EXIT_FAILURE);
+	                    }
+                        else
+                        {
+                            cout << "\nEnter Username for Entry " << i+1 <<": ";
+                            cin >> uname;
+                            while(login >> a >> b >> c)
+		                    {
+                                if(login.eof())
+			                        break;
+                                if(uname.compare(encryptDecrypt(a))==0)
+                                {
+                                    flag = 1;
+                                    break;
+                                }
+                            }
+                            if(flag == 1)
+                            {
+                                cout << "\nUsername was found in database, Please enter Present(P) or Absent(A):";
+                                unamecheck:
+                                cin >> PorA;
+                                if(PorA =='P' || PorA =='A')
+                                {
+                                    insertdatetable(date,uname,PorA);
+                                    cout << "\nData has been entered.";
+                                }
+                                else
+                                {
+                                    cout << "\nP or A ONLY!\n";
+                                    goto unamecheck;
+                                }                    
+                            }
+                            else
+                            {
+                                cout << "\nUsername not found, Please Try Again!";
+                                login.close();
+                                goto tryagainuname;                                    
+                            }
+                        }
+                    }
+                    break;
+
+            case 3: 
+                    cout << "\nPlease enter a date to print all attendance of that date (DD MM YYYY format, braces allowed are ('_','-','\\','/')):";
+                    cin >> date;
+                    getattendanceofdate(date);
+                    break;
+            
+            case 4:
+                    cout << "\nEnter a Date to check: ";
+                    cin >> date;
+                    if(checkiftableexists(date))
+                        cout << "\n" << date << " entry found"; 
+                    else
+                        cout << "\n" << date << " entry does'nt exist";
+                    break;
+            default:
+                    cout << "\nWrong choice entered!!"; 
+                    break;
+        }
+        cout << "\n\nReturn to Attendance Menu?(y/n)";
+        cin >> ans;
+   }
 }

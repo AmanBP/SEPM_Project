@@ -2,13 +2,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//void ViewAttendance();
 //void TransLogs();
 //void Backup();
 void VRates();
 void CRates();
 void MUsers();
 void ViewComplaints();
+void AttendanceHandler();
 
 void AdminMenu()
 {
@@ -30,7 +30,7 @@ void AdminMenu()
 		switch(choice)
 		{
 			case 1:
-//				ViewAttendance();
+				AttendanceHandler();
 				break;
 			case 2:
 				CRates();

@@ -9,7 +9,6 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
 ## WIP:
 ```	
-	-Attendance system
 	-Per User Type Menus
 	-Logging System
 ```
@@ -23,6 +22,7 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 	-List Users
 	-Change Rates
 	-View Rates
+	-Attendance system for admins
 ```
 
 ## To run the program :

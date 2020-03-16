@@ -40,18 +40,19 @@ In the extracted folder, create a folder named Headers
 Place tha above file into the Headers folder
 </p>
 <p>
-CMD into the Programs folder and use the following g++ command:
+Open a terminal into the Programs folder and use the following g++ command:
 </p>
 
 
-CMD:
+CMD :
 
 ```
 >g++ accmenu.cpp attendance.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mu.cpp musers.cpp program.cpp recepmenu.cpp register.cpp vc.cpp viewrates.cpp -l sqlite3
 >a.exe
 ```
 
-Git Bash or linux terminal style:
+
+Git Bash or linux terminal style :
 
 ```
 $g++ *.cpp -l sqlite3

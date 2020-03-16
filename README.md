@@ -25,10 +25,19 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 	-Attendance system for admins
 ```
 
+## Requirements :
+```
+	-Windows system.
+	-g++ binary location in PATH for building in CMD.
+
+```
+
 ## To run the program :
-Download this file:
+
+
+Download these files:
 <p>
-<a href="https://drive.google.com/file/d/1hvT45-EnIqboEJlwCc3zhBRLDJ8sz7GW/view?usp=sharing"><img alt="Download" src="https://badgen.net/badge/Download/GDrive/green?icon=https://www.svgrepo.com/show/139610/download.svg"></a>
+<a href="https://drive.google.com/drive/folders/1nkrbTD1YsSVKgD4Yd2roz_vK7ZdW7JfM?usp=sharing"><img alt="Download" src="https://badgen.net/badge/Download/GDrive/green?icon=https://www.svgrepo.com/show/139610/download.svg"></a>
 </p>
 <p>
 Download and extract the project
@@ -37,7 +46,7 @@ Download and extract the project
 In the extracted folder, create a folder named Headers
 </p>
 <p>
-Place tha above file into the Headers folder
+Place the above files into the Headers folder
 </p>
 <p>
 Open a terminal into the Programs folder and use the following g++ command:
@@ -47,14 +56,6 @@ Open a terminal into the Programs folder and use the following g++ command:
 CMD :
 
 ```
->g++ accmenu.cpp attendance.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mu.cpp musers.cpp program.cpp recepmenu.cpp register.cpp vc.cpp viewrates.cpp -l sqlite3
+>g++ accmenu.cpp attendance.cpp backup.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mu.cpp musers.cpp program.cpp recepmenu.cpp register.cpp vc.cpp viewrates.cpp -l sqlite3
 >a.exe
-```
-
-
-Git Bash or linux terminal style :
-
-```
-$g++ *.cpp -l sqlite3
-$a.exe
 ```

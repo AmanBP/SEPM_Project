@@ -3,7 +3,7 @@
 using namespace std;
 
 //void TransLogs();
-//void Backup();
+void Backup();
 void VRates();
 void CRates();
 void MUsers();
@@ -42,7 +42,7 @@ void AdminMenu()
 //				TransLogs();
 				break;
 			case 5:
-//				Backup();
+				Backup();
 				break;
 			case 6:
 				VRates();

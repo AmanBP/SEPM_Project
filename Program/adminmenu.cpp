@@ -12,19 +12,19 @@ void AttendanceHandler();
 
 void AdminMenu(string uid)
 {
-	int choice=9;
+	int choice;
 	while(true)
 	{
 		system("CLS");
 		cout << "\n-------------------------Admin & Owner Menu----------------------------";
-		cout << "\n1.View Attendance";
-		cout << "\n2.Change Rates";
-		cout << "\n3.User Options";
-		cout << "\n4.Access Transaction Logs";
-		cout << "\n5.Create Backups";
-		cout << "\n6.View Rates";
-		cout << "\n7.View Complaints/Suggestions";
-		cout << "\n8.Log Out";
+		cout << "\n1. Attendance Menu";
+		cout << "\n2. Change Rates";
+		cout << "\n3. User Options";
+		cout << "\n4. Access Transaction Logs";
+		cout << "\n5. Create Backups";
+		cout << "\n6. View Rates";
+		cout << "\n7. View Complaints/Suggestions";
+		cout << "\n8. Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)

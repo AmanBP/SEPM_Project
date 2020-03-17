@@ -1,4 +1,4 @@
-#include "../headers/sqlite3.h"
+#include <sqlite3.h>
 #include <bits/stdc++.h>
 #include <string.h>
 #include <fstream>
@@ -157,14 +157,14 @@ void getattendanceofdate(string a)
     if(rc)
         fprintf(stderr, "\nCan't open database: %s\n", sqlite3_errmsg(db));
     else
-        fprintf(stdout, "\nOpened database successfully");;
+        fprintf(stdout, "\nOpened database successfully\n");;
     sqlite3_prepare(db, p, sizeof(p), &stmt, NULL);
     while (!done) {
         switch (sqlite3_step (stmt)) {
         case SQLITE_ROW:
             id = sqlite3_column_text(stmt,0);
             text  = sqlite3_column_text(stmt, 1);
-            printf ("ID: %s was %s \n", id, text);
+            printf ("%s was %s \n", id, text);
             break;
 
         case SQLITE_DONE:
@@ -172,7 +172,7 @@ void getattendanceofdate(string a)
             break;
 
         default:
-            fprintf(stderr, "Failed.\n");
+            cout << "Failed.\n";
             break;
         }
     }
@@ -184,8 +184,8 @@ void AttendanceHandler()
 {
     string date,a,b,c,uname;
     int choice;
-    char ans = 'y',PorA;  
-    while(ans == 'y' || ans == 'Y')
+    char PorA;  
+    while(true)
     {
         topattendance:
         system("CLS");
@@ -194,6 +194,7 @@ void AttendanceHandler()
         cout << "\n2. Insert attendance into a date";
         cout << "\n3. View Attendance of a date";
         cout << "\n4. Check if date entry exists";
+        cout << "\n5. Back";
         cout << "\nEnter a choice: ";
         cin >> choice;
         switch(choice)
@@ -203,6 +204,8 @@ void AttendanceHandler()
                     cin >> date;
                     cout << "\nCreating an Entry for :" << date;
                     createdatetable(date);
+                    cout << "\n";
+                    system("PAUSE");
                     break;
 
             case 2: 
@@ -224,7 +227,8 @@ void AttendanceHandler()
                         else                        
                         {   
                             cout << "\nReturning to attendance menu.";
-                            goto topattendance;
+                            system("PAUSE");
+                            break;
                         }
                     }
                     cout << "\nPlease enter number of entries to be entered: ";
@@ -280,27 +284,33 @@ void AttendanceHandler()
                             }
                         }
                     }
+                    cout << endl;
+                    system("PAUSE");
                     break;
 
             case 3: 
                     cout << "\nPlease enter a date to print all attendance of that date (DD MM YYYY format, braces allowed are ('_','-','\\','/')):";
                     cin >> date;
                     getattendanceofdate(date);
+                    system("PAUSE");
                     break;
             
             case 4:
                     cout << "\nEnter a Date to check: ";
                     cin >> date;
                     if(checkiftableexists(date))
-                        cout << "\n" << date << " entry found"; 
+                        cout << "\n" << date << " entry found\n"; 
                     else
-                        cout << "\n" << date << " entry does'nt exist";
+                        cout << "\n" << date << " entry does'nt exist\n";
+                    system("PAUSE");
                     break;
+            
+            case 5:
+                    return;
             default:
-                    cout << "\nWrong choice entered!!"; 
+                    cout << "\nWrong choice entered!!";
+                    system("PAUSE");
                     break;
         }
-        cout << "\n\nReturn to Attendance Menu?(y/n)";
-        cin >> ans;
    }
 }

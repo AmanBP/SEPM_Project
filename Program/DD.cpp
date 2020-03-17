@@ -3,8 +3,6 @@
 
 using namespace std;
 
-std::string encryptDecrypt(std::string toEncrypt);
-
 void DD(string a, string b, int c)
 {
 	cout << "\nDetails:";

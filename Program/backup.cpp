@@ -12,17 +12,14 @@ static int CALLBACK BrowseCallbackProc(HWND hwnd,UINT uMsg, LPARAM lParam, LPARA
     if(uMsg == BFFM_INITIALIZED)
     {
          string tmp = (const char *) lpData;
-         cout << "path: " << tmp <<  endl;
         SendMessage(hwnd, BFFM_SETSELECTION, TRUE, lpData);
     }
-
     return 0;
 }
 
 string BrowseFolder()
 {
     TCHAR path[MAX_PATH];
-
     const char * path_param;
 
     BROWSEINFO bi = { 0 };
@@ -35,33 +32,28 @@ string BrowseFolder()
 
     if ( pidl != 0 )
     {
-        //get the name of the folder and put it in path
         SHGetPathFromIDList ( pidl, path );
-
-        //free memory used
         IMalloc * imalloc = 0;
         if ( SUCCEEDED( SHGetMalloc ( &imalloc )) )
         {
             imalloc->Free ( pidl );
             imalloc->Release ( );
         }
-
         return path;
     }
-
     return "";
 }
 
 void Backup()
 {
-    cout << "\nPlease choose a location to backup the data.\n";
+    cout << "\nPlease choose a location in the pop-up window to backup the data.\n";
     system("PAUSE");
     string path = BrowseFolder();
     cout << "\nCopying files\n";
     string p= "copy \"../Data/\" \"" + path + "\"";
     const char *command = p.c_str(); 
     system(command);
-    cout << "\n Backups are at : " << path;
+    cout << "\nBackups are at : " << path;
     cout << "\nReturning to menu\n";
     system("PAUSE");
 }

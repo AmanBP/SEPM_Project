@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//void TransLogs();
+void TransLogs(string uid);
 void Backup();
 void VRates();
 void CRates();
@@ -10,7 +10,7 @@ void MUsers();
 void ViewComplaints();
 void AttendanceHandler();
 
-void AdminMenu()
+void AdminMenu(string uid)
 {
 	int choice=9;
 	while(true)
@@ -39,7 +39,7 @@ void AdminMenu()
 				MUsers();
 				break;
 			case 4:
-//				TransLogs();
+				TransLogs(uid);
 				break;
 			case 5:
 				Backup();

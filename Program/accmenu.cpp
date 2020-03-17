@@ -2,45 +2,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//void ViewAttendance();
-//void TransLogs();
-//void Backup();
+void Trans(string uid);
 void VRates();
 void MakeComp();
 
-void AccountantMenu()
+void AccountantMenu(string uid)
 {
 	int choice=8;
 	while(true)
 	{
 		system("CLS");
 		cout << "\n-------------------------Accountant Menu----------------------------";
-		cout << "\n1.Do a Transaction";
-		cout << "\n2.View Transaction Logs";
-		cout << "\n3.View Rates";
-		cout << "\n4.Check Account Status";
-		cout << "\n5.Make Complaint/Suggestion";
-		cout << "\n6.Log Out";
+		cout << "\n1. Transaction Menu";
+		cout << "\n2. View Rates";
+		cout << "\n3. Make Complaint/Suggestion";
+		cout << "\n4. Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
 		{
 			case 1:
-//				TransLogs();
+				Trans(uid);
 				break;
 			case 2:
-//				Trans();
-				break;
-			case 3:
 				VRates();
 				break;
-			case 4:
-//				CheckBal();
-				break;
-			case 5:
+			case 3:
 				MakeComp();
 				return;
-			case 6:
+			case 4:
 				return;
 				break;
 			default:

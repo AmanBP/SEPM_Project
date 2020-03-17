@@ -6,4 +6,3 @@ std::string encryptDecrypt(std::string toEncrypt) {
         output[i] = toEncrypt[i] ^ key[i % (sizeof(key)/sizeof(char))];
     return output;
 }
-

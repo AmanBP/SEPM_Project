@@ -8,8 +8,8 @@
 using namespace std;
 
 //Custom functions:
-void AdminMenu();
-void AccountantMenu();
+void AdminMenu(string uid);
+void AccountantMenu(string uid);
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
 void ReceptionistMenu();
@@ -75,11 +75,11 @@ int main()
 						switch(Ftype)
 						{
 							case 1:
-								AdminMenu();
+								AdminMenu(Uname);
 								goto A3;
 								break;
 							case 2:
-								AccountantMenu();
+								AccountantMenu(Uname);
 								goto A3;
 								break;
 							case 3:
@@ -118,7 +118,10 @@ int main()
 					continue;
 			}
 			if(fin.eof())
-				cout << "\nUsername was not found, please register or try again.\n";
+				{
+					cout << "\nUsername was not found, please register or try again.\n";
+					system("PAUSE");
+				}
 			break;
 		case 2:
 			exit(EXIT_SUCCESS);

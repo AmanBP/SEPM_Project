@@ -56,6 +56,6 @@ Open a terminal into the Programs folder and use the following g++ command:
 CMD :
 
 ```
->g++ accmenu.cpp attendance.cpp backup.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mu.cpp musers.cpp program.cpp recepmenu.cpp register.cpp vc.cpp viewrates.cpp -l sqlite3
+>g++ accmenu.cpp attendance.cpp backup.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mu.cpp musers.cpp program.cpp recepmenu.cpp register.cpp transaction.cpp vc.cpp viewrates.cpp -l sqlite3
 >a.exe
 ```

@@ -12,7 +12,7 @@ void AdminMenu(string uid);
 void AccountantMenu(string uid);
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
-void ReceptionistMenu();
+void ReceptionistMenu(string uid);
 
 int main()
 {	
@@ -83,7 +83,7 @@ int main()
 								goto A3;
 								break;
 							case 3:
-								ReceptionistMenu();
+								ReceptionistMenu(Uname);
 								cout << "ReceptionistMenu-WIP";
 								goto A3;
 								break;

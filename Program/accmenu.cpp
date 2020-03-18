@@ -8,7 +8,7 @@ void MakeComp();
 
 void AccountantMenu(string uid)
 {
-	int choice=8;
+	int choice=0;
 	while(true)
 	{
 		system("CLS");

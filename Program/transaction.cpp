@@ -60,7 +60,7 @@ void EnterFunds(string uid)
     }
     f << bal;
     f.close();
-    fout << "\n" << uid << " has added:  Rs " << amount << "\nNew Balance is:  Rs " << bal;
+    fout << uid << " has added:  Rs " << amount << "\nNew Balance is:  Rs " << bal;
     fout << "\nTimestamp: " << gettime();
     cout << "\n";
     system("PAUSE");
@@ -118,7 +118,7 @@ void TakeFunds(string uid)
     }
     f << bal;
     f.close();
-    fout << "\n" << uid << " has deducted: Rs " << amount << "\nNew Balance is:  Rs " << bal;
+    fout << uid << " has deducted: Rs " << amount << "\nNew Balance is:  Rs " << bal;
     fout << "\nTimestamp: " << gettime();
     cout << "\n";
     system("PAUSE");
@@ -141,7 +141,7 @@ void ViewFunds(string uid)
     fin >> bal;
     cout << "\nCurrently available funds are:  Rs " << bal;
     cout << "\nWriting logs";
-    fout << "\n" << uid << " has accessed balance.";
+    fout << uid << " has accessed balance.";
     fout << "\nTimestamp: " << gettime();
     cout << "\n";
     system("PAUSE");

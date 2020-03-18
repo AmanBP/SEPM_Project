@@ -35,13 +35,8 @@ Vigneshwar Parthiban   - github.com/VigneshwarP          - 22
 
 ## To run the program :
 <p>
-Open a terminal into the Programs folder and use the following g++ command:
+Clone the repo from top right
 </p>
-
-CMD :
-
-```
->g++ accmenu.cpp adminmenu.cpp attendance.cpp backup.cpp changerates.cpp DD.cpp encryptor.cpp lu.cpp mc.cpp musers.cpp program.cpp recepmenu.cpp register.cpp transaction.cpp vc.cpp viewrates.cpp -l sqlite3
->a.exe
-```
-
+<p>
+Just run /Builder/Creator.bat
+</p>

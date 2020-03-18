@@ -7,8 +7,9 @@ using namespace std;
 
 void MakeComp();
 void Register(int x);
+void Fees(string uid);
 
-void ReceptionistMenu()
+void ReceptionistMenu(string uid)
 {
 	while(true)
 	{
@@ -27,7 +28,7 @@ void ReceptionistMenu()
 				Register(2);
 				break;
 			case 2:
-				//Fees();
+				Fees(uid);
 				break;
 			case 3:
 				MakeComp();

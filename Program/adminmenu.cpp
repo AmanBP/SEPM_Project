@@ -7,7 +7,7 @@ void Backup();
 void VRates();
 void CRates();
 void MUsers();
-void ViewComplaints();
+void ComplaintHandler();
 void AttendanceHandler();
 
 void AdminMenu(string uid)
@@ -23,7 +23,7 @@ void AdminMenu(string uid)
 		cout << "\n4. Access Transaction Logs";
 		cout << "\n5. Create Backups";
 		cout << "\n6. View Rates";
-		cout << "\n7. View Complaints/Suggestions";
+		cout << "\n7. Complaints/Suggestions Menu";
 		cout << "\n8. Log Out";
 		cout << "\n:";
 		cin >> choice;
@@ -48,7 +48,7 @@ void AdminMenu(string uid)
 				VRates();
 				break;
 			case 7:
-				ViewComplaints();
+				ComplaintHandler();
 				break;
 			case 8:
 				return;

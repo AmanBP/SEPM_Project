@@ -1,6 +1,27 @@
 @echo off
-cd ../Program/
 setlocal enabledelayedexpansion
+echo Deleting filelist.txt if found
+IF EXIST *.txt (
+    echo filelist.txt found!
+    echo Deleting filelist.txt  ....
+    DEL /F *.txt
+    echo done.
+                )
+cd ../Program/
+echo Stopping a.exe if found running:
+TASKLIST|FIND "a.exe" > NUL
+@echo off
+if %ERRORLEVEL% equ 0 (taskkill /im a.exe /f)
+@echo off
+echo done.
+echo Deleting a.exe if found
+IF EXIST a.exe (
+    echo a.exe found!
+    echo Deleting a.exe  ....
+    DEL /F a.exe
+    echo done.
+                )
+IF EXIST a.exe DEL /F a.exe
 dir /b *.cpp  > ../Builder/filelist.txt
 set "command=g++ "
 set "part2= -l sqlite3"
@@ -10,9 +31,9 @@ set command=!command!!part2!
 echo Running : !command!
 echo Please Wait..........
 call !command!
-echo Done, want to run program?
+echo Done compiling, want to run program?
 set /p yesno="Yes(y) or No(n):"
-if "%yesno%"=="y" (
-	start a.exe)
-echo Done.
-cd ../Builder/
+if "%yesno%"=="y" (start a.exe)
+call cd ..
+call cd Builder
+echo Finished!

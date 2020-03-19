@@ -40,3 +40,6 @@ Clone the repo from top right
 <p>
 Just run /Builder/Creator.bat
 </p>
+<p>
+If " ERROR: The process "a.exe" not found. ", no problem has occured, the script attempts to kill a.exe before deleting it.
+</p>

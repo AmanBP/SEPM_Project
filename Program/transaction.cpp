@@ -1,5 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
 #include <stdlib.h>
+#include <ctime>
 using namespace std;
 
 string gettime()
@@ -178,7 +182,10 @@ void Trans(string uid)
     while(true)
     {
         system("CLS");
-        cout << "\n-----------------------Transaction Menu--------------";
+        cout << setw(80) << setfill('-') <<"-\n";
+        cout << "|" << setw(39) << setfill(' ') <<"Transaction Menu";
+        cout << setw(40) << setfill(' ') << "|\n";
+        cout << setw(79) << setfill('-') <<"-";
         cout << "\n1. Enter Funds";
         cout << "\n2. Take Funds";
         cout << "\n3. Check Transaction Logs";

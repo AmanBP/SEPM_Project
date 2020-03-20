@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <stdlib.h>
 using namespace std;
 
 void MakeComp()
@@ -85,7 +89,10 @@ void ComplaintHandler()
 	while(true)
 	{
 		system("CLS");
-		cout << "------------Complaints Menu-------------";
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Complaints/Suggestion Menu";
+  		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1. View Complaints/Suggestions";
 		cout << "\n2. Delete a Complaint/Suggestion";
 		cout << "\n3. Make a Complaint/Suggestion";

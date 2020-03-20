@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
+#include <string>
+#include <iomanip>
 #include <stdlib.h>
-#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -14,7 +15,10 @@ void ReceptionistMenu(string uid)
 	while(true)
 	{
 		system("CLS");
-		cout << "---------------Receptionist Menu------------------";
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Receptionist Menu";
+  		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1.Register";
 		cout << "\n2.Recieve Fees";
 		cout << "\n3.Complaint/Suggestion";

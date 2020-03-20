@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdlib.h>
+#include <iomanip>
 using namespace std;
 
 static int CALLBACK BrowseCallbackProc(HWND hwnd,UINT uMsg, LPARAM lParam, LPARAM lpData)
@@ -46,6 +47,11 @@ string BrowseFolder()
 
 void Backup()
 {
+    system("CLS");
+    cout << setw(80) << setfill('-') <<"-\n";
+    cout << "|" << setw(39) << setfill(' ') <<"BACKUP";
+    cout << setw(40) << setfill(' ') << "|\n";
+    cout << setw(79) << setfill('-') <<"-";
     cout << "\nPlease choose a location in the pop-up window to backup the data.\n";
     system("PAUSE");
     string path = BrowseFolder();

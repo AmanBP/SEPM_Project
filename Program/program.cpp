@@ -3,8 +3,7 @@
 #include <string>
 #include <conio.h>
 #include <stdlib.h>
-#include <cstring>
-#include <bits/stdc++.h>
+#include <iomanip>
 using namespace std;
 
 //Custom functions:
@@ -33,7 +32,10 @@ int main()
 		int ch;
 		A3:
 		system("CLS");
-		cout << "-----------Program Menu---------------";
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Program Main Menu";
+  		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1. Login";
 		cout << "\n2. Exit";
 		cout << "\nChoose an option:";

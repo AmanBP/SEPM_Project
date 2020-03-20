@@ -189,7 +189,10 @@ void AttendanceHandler()
     {
         topattendance:
         system("CLS");
-        cout << "\nAttendance Menu:";
+        cout << setw(80) << setfill('-') <<"-\n";
+        cout << "|" << setw(39) << setfill(' ') <<"Attendance Menu";
+        cout << setw(40) << setfill(' ') << "|\n";
+        cout << setw(79) << setfill('-') <<"-";
         cout << "\n1. Create Entry of a date";
         cout << "\n2. Insert attendance into a date";
         cout << "\n3. View Attendance of a date";

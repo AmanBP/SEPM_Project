@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <bits/stdc++.h>
+#include <string>
+#include <stdlib.h>
 using namespace std;
 
 void CRates()
@@ -134,14 +135,19 @@ void CRates()
 								break;
 					}
 					break;
+				
+				default:
+					cout << "\nWrong Choice Entered!!";
+					break;
 			}
 			label1:
 			fin.close();
 			fin.open("../Data/rates.txt",ios::out);
 			cout <<"\nWriting data to file.\n";
-			fin << mr << " " << qr << " "  << hyr << " "  << yr << " "  << drmr << " "  << gtrmr << " "  << drqr << " "  << gtrqr << " "  << gtrhyr << " "  << drhyr << " "  << dryr << " "  << gtryr;
+			fin << mr << " " << qr << " "  << hyr << " "  << yr << " "  << gtrmr << " "  << gtrqr << " "  << gtrhyr 
+				<< " "  << gtryr << " "  << drmr << " "  << drqr << " "  << drhyr << " "  << dryr;
 			fin.close();
-			cout << "\nChange another rate?(Y/N///y/n):";
+			cout << "\nChange another rate?(y/n):";
 			cin >> b;
 		}
 	}

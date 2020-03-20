@@ -1,12 +1,14 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <iomanip>
+#include <string>
+#include <stdlib.h>
 using namespace std;
 
 void TransLogs(string uid);
 void Backup();
 void VRates();
 void CRates();
-void MUsers();
+void UsersMenu();
 void ComplaintHandler();
 void AttendanceHandler();
 
@@ -16,10 +18,13 @@ void AdminMenu(string uid)
 	while(true)
 	{
 		system("CLS");
-		cout << "\n-------------------------Admin & Owner Menu----------------------------";
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Admin & Owner Menu";
+  		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1. Attendance Menu";
 		cout << "\n2. Change Rates";
-		cout << "\n3. User Options";
+		cout << "\n3. Users Menu";
 		cout << "\n4. Access Transaction Logs";
 		cout << "\n5. Create Backups";
 		cout << "\n6. View Rates";
@@ -36,7 +41,7 @@ void AdminMenu(string uid)
 				CRates();
 				break;
 			case 3:
-				MUsers();
+				UsersMenu();
 				break;
 			case 4:
 				TransLogs(uid);

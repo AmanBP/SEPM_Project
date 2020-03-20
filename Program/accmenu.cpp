@@ -1,5 +1,7 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <iomanip>
+#include <string>
+#include <stdlib.h>
 using namespace std;
 
 void Trans(string uid);
@@ -12,7 +14,10 @@ void AccountantMenu(string uid)
 	while(true)
 	{
 		system("CLS");
-		cout << "\n-------------------------Accountant Menu----------------------------";
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Accountant Menu";
+ 		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1. Transaction Menu";
 		cout << "\n2. View Rates";
 		cout << "\n3. Make Complaint/Suggestion";

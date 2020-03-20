@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <stdlib.h>
 #include <string>
+#include <iomanip>
+#include <stdlib.h>
 #include <conio.h>
 using namespace std;
 
@@ -11,9 +12,13 @@ std::string encryptDecrypt(string toEncrypt);
 
 void Register(int x)
 {
+	cout << setw(80) << setfill('-') <<"-\n";
+  	cout << "|" << setw(39) << setfill(' ') <<"REGISTER";
+  	cout << setw(40) << setfill(' ') << "|\n";
+  	cout << setw(79) << setfill('-') <<"-";
 	string PASSWORD,USER_ID,UID,PASS;
 	int type,t;
-	cout << "\nRegistering has begun";
+	cout << "\nRegisteration has begun";
 	A1:
 	fstream op("../Data/ID_List.txt",ios::in|ios::binary);
 	if(!op)

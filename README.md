@@ -1,6 +1,6 @@
 # SEPM_Project - Amplifit Gym Management System
 Project by:
-[TRON Legacy movie effects](https://web.archive.org/web/20170511000410/http://jtnimoy.com/blogs/projects/14881671) 
+
 Aman Bhai Patel-[GitHub](https://www.github.com/amanbp)-49
 
 Shrey Lakhanpal-[GitHub](https://www.github.com/shreylakhanpal4)-44

@@ -35,6 +35,6 @@ Vigneshwar Parthiban-[GitHub](https://www.github.com/VigneshwarP) -22
 ## To run the program :
 
 Clone the repo from top right  
-I recommend to place your own compiled sqlite3.o in the dependencies folder, or you could use mine. Ignore if you use c++ from [MinGW](https://www.mingw.org) compiler.  
+I recommend to place your own compiled sqlite3.o in the dependencies folder, or you could use mine. Ignore if you use c++ from [MinGW](http://www.mingw.org/) compiler.  
 Just run /Builder/Creator.bat  
 If " ERROR: The process "a.exe" not found. ", no problem has occured, the script attempts to kill a.exe before deleting it.  

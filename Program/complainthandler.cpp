@@ -5,6 +5,9 @@
 #include <stdlib.h>
 using namespace std;
 
+void makemenuheader(string a);
+
+
 void MakeComp()
 {
 	fstream fin;
@@ -89,11 +92,8 @@ void ComplaintHandler()
 	while(true)
 	{
 		system("CLS");
-		cout << setw(80) << setfill('-') <<"-\n";
-  		cout << "|" << setw(39) << setfill(' ') <<"Complaints/Suggestion Menu";
-  		cout << setw(40) << setfill(' ') << "|\n";
-  		cout << setw(79) << setfill('-') <<"-";
-		cout << "\n1. View Complaints/Suggestions";
+		makemenuheader("          Complaints & Suggestions Menu          ");
+		cout << "1. View Complaints/Suggestions";
 		cout << "\n2. Delete a Complaint/Suggestion";
 		cout << "\n3. Make a Complaint/Suggestion";
 		cout << "\n4. Back";

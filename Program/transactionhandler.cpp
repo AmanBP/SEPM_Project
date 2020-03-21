@@ -6,6 +6,9 @@
 #include <ctime>
 using namespace std;
 
+void makemenuheader(string a);
+
+
 string gettime()
 {
     time_t rawtime;
@@ -182,11 +185,8 @@ void Trans(string uid)
     while(true)
     {
         system("CLS");
-        cout << setw(80) << setfill('-') <<"-\n";
-        cout << "|" << setw(39) << setfill(' ') <<"Transaction Menu";
-        cout << setw(40) << setfill(' ') << "|\n";
-        cout << setw(79) << setfill('-') <<"-";
-        cout << "\n1. Enter Funds";
+        makemenuheader("          Transaction Menu          ");
+		cout << "1. Enter Funds";
         cout << "\n2. Take Funds";
         cout << "\n3. Check Transaction Logs";
         cout << "\n4. View Current Funds";

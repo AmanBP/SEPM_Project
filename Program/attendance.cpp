@@ -1,11 +1,13 @@
-#include <sqlite3.h>
+#include "../dependencies/sqlite3.h"
 #include <bits/stdc++.h>
 #include <string.h>
 #include <fstream>
 #include <stdlib.h>
+
 using namespace std;
 
 std::string encryptDecrypt(string toEncrypt);
+void makemenuheader(string a);
 
 string getString(char x) 
 { 
@@ -129,7 +131,7 @@ bool checkiftableexists(string date)
                 break;
 
             default:
-                fprintf(stderr, "Failed.\n");
+                cout << "\nFailed.";
                 break;
         }
     }
@@ -172,7 +174,7 @@ void getattendanceofdate(string a)
             break;
 
         default:
-            cout << "Failed.\n";
+            cout << "\nFailed.";
             break;
         }
     }
@@ -189,11 +191,8 @@ void AttendanceHandler()
     {
         topattendance:
         system("CLS");
-        cout << setw(80) << setfill('-') <<"-\n";
-        cout << "|" << setw(39) << setfill(' ') <<"Attendance Menu";
-        cout << setw(40) << setfill(' ') << "|\n";
-        cout << setw(79) << setfill('-') <<"-";
-        cout << "\n1. Create Entry of a date";
+        makemenuheader("          Attendance Menu          ");
+		cout << "1. Create Entry of a date";
         cout << "\n2. Insert attendance into a date";
         cout << "\n3. View Attendance of a date";
         cout << "\n4. Check if date entry exists";

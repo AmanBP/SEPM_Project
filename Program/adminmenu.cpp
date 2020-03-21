@@ -10,6 +10,7 @@ void RateHandler();
 void UsersMenu();
 void ComplaintHandler();
 void AttendanceHandler();
+void makemenuheader(string a);
 
 void AdminMenu(string uid)
 {
@@ -17,11 +18,8 @@ void AdminMenu(string uid)
 	while(true)
 	{
 		system("CLS");
-		cout << setw(80) << setfill('-') <<"-\n";
-  		cout << "|" << setw(39) << setfill(' ') <<"Admin & Owner Menu";
-  		cout << setw(40) << setfill(' ') << "|\n";
-  		cout << setw(79) << setfill('-') <<"-";
-		cout << "\n1. Attendance Menu";
+		makemenuheader("          Admin & Owner Menu          ");
+		cout << "1. Attendance Menu";
 		cout << "\n2. Rates Menu";
 		cout << "\n3. Users Menu";
 		cout << "\n4. Access Transaction Logs";

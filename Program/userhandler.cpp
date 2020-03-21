@@ -11,6 +11,7 @@ void Register(int x);
 void ListUsers();
 //void DUser();
 //void Uedit();
+void makemenuheader(string a);
 
 void ListUsers()
 {
@@ -46,11 +47,8 @@ void UsersMenu()
 	while(true)
 	{
 		system("CLS");
-		cout << setw(80) << setfill('-') <<"-\n";
-  		cout << "|" << setw(39) << setfill(' ') <<"Users Menu";
-  		cout << setw(40) << setfill(' ') << "|\n";
-  		cout << setw(79) << setfill('-') <<"-";
-		cout << "\n1.Edit a User";
+		makemenuheader("              User's Menu               ");
+		cout << "1.Edit a User";
 		cout << "\n2.Add a User";
 		cout << "\n3.Delete a User";
 		cout << "\n4.List Users";

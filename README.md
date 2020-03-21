@@ -1,11 +1,11 @@
 # SEPM_Project - Amplifit Gym Management System
 Project by:
 
-Aman Bhai Patel-[GitHub](https://www.github.com/amanbp)-49
+Aman Bhai Patel-[GitHub](https://www.github.com/amanbp)           -49
 
-Shrey Lakhanpal-[GitHub](https://www.github.com/shreylakhanpal4)-44
+Shrey Lakhanpal-[GitHub](https://www.github.com/shreylakhanpal4)  -44
 
-Vigneshwar Parthiban-[GitHub](https://www.github.com/VigneshwarP)-22
+Vigneshwar Parthiban-[GitHub](https://www.github.com/VigneshwarP) -22
 
 ## WIP:
 ```	
@@ -37,7 +37,7 @@ Vigneshwar Parthiban-[GitHub](https://www.github.com/VigneshwarP)-22
 Clone the repo from top right
 </p>
 <p>
-I recommend to place your own compiled sqlite3.o in the dependencies folder, or you could use mine. Ignore if you use c++ from<a href = "www.mingw.org">mingw</a> compiler.
+I recommend to place your own compiled sqlite3.o in the dependencies folder, or you could use mine. Ignore if you use c++ from [mingw](https://www.mingw.org) compiler.
 </p>
 <p>
 Just run /Builder/Creator.bat

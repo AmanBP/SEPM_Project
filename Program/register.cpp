@@ -8,17 +8,14 @@ using namespace std;
 
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
-
+void makemenuheader(string a);
 
 void Register(int x)
 {
-	cout << setw(80) << setfill('-') <<"-\n";
-  	cout << "|" << setw(39) << setfill(' ') <<"REGISTER";
-  	cout << setw(40) << setfill(' ') << "|\n";
-  	cout << setw(79) << setfill('-') <<"-";
+	makemenuheader("                         REGISTER                       ");
 	string PASSWORD,USER_ID,UID,PASS;
 	int type,t;
-	cout << "\nRegisteration has begun";
+	cout << "Registeration has begun";
 	A1:
 	fstream op("../Data/ID_List.txt",ios::in|ios::binary);
 	if(!op)

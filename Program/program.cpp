@@ -6,12 +6,13 @@
 #include <iomanip>
 using namespace std;
 
-//Custom functions:
+
 void AdminMenu(string uid);
 void AccountantMenu(string uid);
 void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
 void ReceptionistMenu(string uid);
+void makemenuheader(string a);
 
 int main()
 {	
@@ -32,11 +33,8 @@ int main()
 		int ch;
 		A3:
 		system("CLS");
-		cout << setw(80) << setfill('-') <<"-\n";
-  		cout << "|" << setw(39) << setfill(' ') <<"Program Main Menu";
-  		cout << setw(40) << setfill(' ') << "|\n";
-  		cout << setw(79) << setfill('-') <<"-";
-		cout << "\n1. Login";
+		makemenuheader("          Program Main Menu          ");
+		cout << "1. Login";
 		cout << "\n2. Exit";
 		cout << "\nChoose an option:";
 		cin >> ch;

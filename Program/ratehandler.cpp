@@ -3,7 +3,47 @@
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
+#include <vector>
+#include "../dependencies/TextTable.h"
+
 using namespace std;
+void makemenuheader(string a)
+{
+	TextTable t('-','|',' ');
+	t.add(a);
+	t.endOfRow();
+	cout << t;
+}
+void printratetable(int ratedatamatrix[3][4])
+{
+    int i,j;
+
+		/*
+			A table that I wanted but couldnt make. F's in the chat.
+			╔═════════════╦═══════╦══════════╦══════════════╗
+			║ Some String 	  ║ false   ║             ║                  ║
+			╠═════════════╬═══════╬══════════╬══════════════╣
+			║                 ║         ║             ║         true     ║
+		*/
+
+	TextTable t('-','|','+');
+	string tspan[5] = {"Fee Type\\Time Span","Monthly","3 Months","6 Months","12 Months"};
+	string type[3] = {"Membership Fees","Gym Trainer Fees","Dietician Fees"};
+	for(int i=0;i<5;i++)
+        t.add(tspan[i]);
+	t.endOfRow();
+
+    for(i=0;i<3;i++)
+    {
+        t.add(type[i]);
+        for(j=0;j<4;j++)
+            t.add(to_string(ratedatamatrix[i][j]));
+        t.endOfRow();
+    }
+	cout << "\nRates are as follows:\n";
+    cout << t;
+}
+
 void CRates()
 {
 	A6:
@@ -19,21 +59,20 @@ void CRates()
 	else
 	{
 		char b='y';
+		int ratedatamatrix[3][4];
 		while(b=='y'||b=='Y')
 		{
 			system("CLS");
-			int mr,qr,hyr,yr;
-			int drmr,gtrmr,drqr,gtrqr,gtrhyr,drhyr,dryr,gtryr;
-			cout << "\nCurrent Rates are as follows:";
-			cout << "\n   Type\\Time span\t\tMonthly\t\t3months\t\t6months\t\t12months";
-			fin >> mr >> qr >> hyr >> yr >> gtrmr >> gtrqr >> gtrhyr >> gtryr >> drmr >> drqr >> drhyr >> dryr;
-			cout << "\n   Membership Fees \t\t" << mr << "\t\t" <<  qr << "\t\t" << hyr << "\t\t" << yr;
-			cout << "\n   Gym Trainer Fees\t\t" << gtrmr << "\t\t" << gtrqr << "\t\t" << gtrhyr << "\t\t" << gtryr;
-			cout << "\n   Dietician Fees  \t\t" << drmr << "\t\t" << drqr << "\t\t" << drhyr << "\t\t" << dryr;
+			int i,j;
+			for(i=0;i<3;i++)
+				for(j=0;j<4;j++)
+					fin >> ratedatamatrix[i][j];
+			printratetable(ratedatamatrix);
 			cout << "\n\n1.Membership Fees\n2.Gym Trainer Fees\n3.Dietician Rate";
 			cout << "\nWhich Rate would you like to change? :";
 			int ch,a;
 			cin >> ch;
+			int rownum = ch-1,colnum;
 			switch(ch)
 			{
 				case 1:
@@ -41,27 +80,28 @@ void CRates()
 					cout << "\nYou have choosen to edit Gym Membership Fees.";
 					cout << "\n1.Monthly\n2.3 Months\n3.6 Months\n4.Annually\nWhich Time Span would you like to edit?";
 					cin >> a;
+					colnum = a-1;
 					switch(a)
 					{
 						case 1:
-							cout << "\n\nCurrent MONTHLY Membership Fees is : " << mr;
+							cout << "\n\nCurrent MONTHLY Membership Fees is : " << ratedatamatrix[rownum][colnum];
 							cout << "\nEnter new MONTHLY Membership Fees : ";
-							cin >> mr;
+							cin >> ratedatamatrix[rownum][colnum];
 							break;
 						case 2:
-							cout << "\n\nCurrent 3-MONTH Membership Fees is : " << qr;
+							cout << "\n\nCurrent 3-MONTH Membership Fees is : " << ratedatamatrix[rownum][colnum];
 							cout << "\nEnter new 3-MONTH Membership Fees : ";
-							cin >> qr;
+							cin >> ratedatamatrix[rownum][colnum];
 							break;
 						case 3:
-							cout << "\n\nCurrent 6-MONTH Membership Fees is : " << hyr;
+							cout << "\n\nCurrent 6-MONTH Membership Fees is : " << ratedatamatrix[rownum][colnum];
 							cout << "\nEnter new 6-MONTH Membership Fees : ";
-							cin >> hyr;
+							cin >> ratedatamatrix[rownum][colnum];
 							break;
 						case 4:
-							cout << "\n\nCurrent 12-MONTH Membership Fees is : " << yr;
+							cout << "\n\nCurrent 12-MONTH Membership Fees is : " << ratedatamatrix[rownum][colnum];
 							cout << "\nEnter new 12-MONTH Membership Fees : ";
-							cin >> yr;
+							cin >> ratedatamatrix[rownum][colnum];
 							break;
 						default:
 							cout << "\nSorry! The option you chose isnt in the list above.\nPlease Retry: ";
@@ -74,27 +114,28 @@ void CRates()
 					cout << "\nYou have choosen to edit Gym Trainer Rate.";
 					cout << "\n1.Monthly\n2.3 Months\n3.6 Months\n4.Annually\nWhich Time Span would you like to edit?";
 					cin >> a;
+					colnum = a-1;
 					switch(a)
 					{
 						case 1:
-                            cout << "\n\nCurrent MONTHLY Gym Trainer Fees is : " << gtrmr;
+                            cout << "\n\nCurrent MONTHLY Gym Trainer Fees is : " << ratedatamatrix[rownum][colnum];
                             cout << "\nEnter new MONTHLY Gym Trainer Fees : ";
-                            cin >> gtrmr;
+                            cin >> ratedatamatrix[rownum][colnum];
                             break;
 						case 2:
-                            cout << "\n\nCurrent 3-MONTH Gym Trainer Fees is : " << gtrqr;
+                            cout << "\n\nCurrent 3-MONTH Gym Trainer Fees is : " << ratedatamatrix[rownum][colnum];
                             cout << "\nEnter new 3-MONTH Gym Trainer Fees : ";
-                            cin >> gtrqr;
+                            cin >> ratedatamatrix[rownum][colnum];
                             break;
 						case 3:
-                            cout << "\n\nCurrent 6-MONTH Gym Trainer Fees is : " << gtrhyr;
+                            cout << "\n\nCurrent 6-MONTH Gym Trainer Fees is : " << ratedatamatrix[rownum][colnum];
                             cout << "\nEnter new 6-MONTH Gym Trainer Fees : ";
-                            cin >> gtrhyr;
+                            cin >> ratedatamatrix[rownum][colnum];
                             break;
 						case 4:
-                            cout << "\n\nCurrent 12-MONTH Gym Trainer Fees is : " << gtryr;
+                            cout << "\n\nCurrent 12-MONTH Gym Trainer Fees is : " << ratedatamatrix[rownum][colnum];
                             cout << "\nEnter new 12-MONTH Gym Trainer Fees : ";
-                            cin >> gtryr;
+                            cin >> ratedatamatrix[rownum][colnum];
                             break;
 						default:
 							cout << "\nSorry! The option you chose isnt in the list above.\nPlease Retry: ";
@@ -107,27 +148,28 @@ void CRates()
                     cout << "\nYou have choosen to edit Dietician Rate.";
                     cout << "\n1.Monthly\n2.3 Months\n3.6 Months\n4.Annually\nWhich Time Span would you like to edit?";
 					cin >> a;
+					colnum = a-1;
 					switch(a)
 					{
 						case 1:
-								cout << "\n\nCurrent MONTHLY Dietician Fees is : " << drmr;
+								cout << "\n\nCurrent MONTHLY Dietician Fees is : " << ratedatamatrix[rownum][colnum];
 								cout << "\nEnter new MONTHLY Dietician Fees : ";
-								cin >> drmr;
+								cin >> ratedatamatrix[rownum][colnum];
 								break;
 						case 2:
-								cout << "\n\nCurrent 3-MONTH Dietician Fees is : " << drqr;
+								cout << "\n\nCurrent 3-MONTH Dietician Fees is : " << ratedatamatrix[rownum][colnum];
 								cout << "\nEnter new 3-MONTH Dietician Fees : ";
-								cin >> drqr;
+								cin >> ratedatamatrix[rownum][colnum];
 								break;
 						case 3:
-								cout << "\n\nCurrent 6-MONTH Dietician Fees is : " << drhyr;
+								cout << "\n\nCurrent 6-MONTH Dietician Fees is : " << ratedatamatrix[rownum][colnum];
 								cout << "\nEnter new 6-MONTH Dietician Fees : ";
-								cin >> drhyr;
+								cin >> ratedatamatrix[rownum][colnum];
 								break; 
 						case 4:
-								cout << "\n\nCurrent 12-MONTH Dietician Fees is : " << dryr;
+								cout << "\n\nCurrent 12-MONTH Dietician Fees is : " << ratedatamatrix[rownum][colnum];
 								cout << "\nEnter new 12-MONTH Dietician Fees : ";
-								cin >> dryr;
+								cin >> ratedatamatrix[rownum][colnum];
 								break;
 						default:
 								cout << "\nSorry! The option you chose isnt in the list above.\nPlease Retry: ";
@@ -135,7 +177,6 @@ void CRates()
 								break;
 					}
 					break;
-				
 				default:
 					cout << "\nWrong Choice Entered!!";
 					break;
@@ -144,8 +185,9 @@ void CRates()
 			fin.close();
 			fin.open("../Data/rates.txt",ios::out);
 			cout <<"\nWriting data to file.\n";
-			fin << mr << " " << qr << " "  << hyr << " "  << yr << " "  << gtrmr << " "  << gtrqr << " "  << gtrhyr 
-				<< " "  << gtryr << " "  << drmr << " "  << drqr << " "  << drhyr << " "  << dryr;
+			for(i=0;i<3;i++)
+				for(j=0;j<4;j++)
+					fin << ratedatamatrix[i][j] << " ";
 			fin.close();
 			cout << "\nChange another rate?(y/n):";
 			cin >> b;
@@ -156,6 +198,7 @@ void CRates()
 
 void VRates()
 {
+	int i,j;
 	fstream fin("../Data/rates.txt",ios::in);
 	if(!fin)
 	{
@@ -167,15 +210,12 @@ void VRates()
 	else
 	{
 		system("CLS");
-		int mr,qr,hyr,yr;
-		int drmr,gtrmr,drqr,gtrqr,gtrhyr,drhyr,dryr,gtryr;
-		cout << "\nCurrent Rates are as follows:";
-		fin >> mr >> qr >> hyr >> yr >> gtrmr >> gtrqr >> gtrhyr >> gtryr >> drmr >> drqr >> drhyr >> dryr;
-		cout << "\n   Type\\Time span\t\tMonthly\t\t3months\t\t6months\t\t12months";
-		cout << "\n   Membership Fees \t\t" << mr << "\t\t" <<  qr << "\t\t" << hyr << "\t\t" << yr;
-		cout << "\n   Gym Trainer Fees\t\t" << gtrmr << "\t\t" << gtrqr << "\t\t" << gtrhyr << "\t\t" << gtryr;
-		cout << "\n   Dietician Fees  \t\t" << drmr << "\t\t" << drqr << "\t\t" << drhyr << "\t\t" << dryr << endl;
+		int filevalue, ratedatamatrix[3][4];
+		for(i=0;i<3;i++)
+			for(j=0;j<4;j++)
+				fin >> ratedatamatrix[i][j];
 		fin.close();
+		printratetable(ratedatamatrix);
 		cout << "To return to menu : ";
 		system("Pause");
 		return;
@@ -187,11 +227,8 @@ void RateHandler()
 	while(true)
 	{
 		system("CLS");
-		cout << setw(80) << setfill('-') <<"-\n";
-  		cout << "|" << setw(39) << setfill(' ') <<"Rates Menu";
-  		cout << setw(40) << setfill(' ') << "|\n";
-  		cout << setw(79) << setfill('-') <<"-";
-		cout << "\n1. View Rates";
+		makemenuheader("          Rates Menu          ");
+		cout << "1. View Rates";
 		cout << "\n2. Change Rates";
 		cout << "\n3. Back";
 		cout << "\n:";

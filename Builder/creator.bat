@@ -22,9 +22,9 @@ IF EXIST a.exe (
     echo done.
                 )
 IF EXIST a.exe DEL /F a.exe
-dir /b *.cpp  > ../Builder/filelist.txt
+dir /b *.c*  > ../Builder/filelist.txt
 set "command=g++ "
-set "part2= -l sqlite3"
+set "part2= ../dependencies/sqlite3.o"
 @echo off
 for /f "delims=" %%a in (../Builder/filelist.txt) DO (set "command=!command! %%a")
 set command=!command!!part2!

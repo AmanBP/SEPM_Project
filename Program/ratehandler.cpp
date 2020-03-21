@@ -2,8 +2,8 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
+#include <iomanip>
 using namespace std;
-
 void CRates()
 {
 	A6:
@@ -152,4 +152,69 @@ void CRates()
 		}
 	}
 	return;
+}
+
+void VRates()
+{
+	fstream fin("../Data/rates.txt",ios::in);
+	if(!fin)
+	{
+		cout << "\nFile not Found!";
+		cout << "\nError Code 100";
+		cout << "\nProgram Aborting";
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		system("CLS");
+		int mr,qr,hyr,yr;
+		int drmr,gtrmr,drqr,gtrqr,gtrhyr,drhyr,dryr,gtryr;
+		cout << "\nCurrent Rates are as follows:";
+		fin >> mr >> qr >> hyr >> yr >> gtrmr >> gtrqr >> gtrhyr >> gtryr >> drmr >> drqr >> drhyr >> dryr;
+		cout << "\n   Type\\Time span\t\tMonthly\t\t3months\t\t6months\t\t12months";
+		cout << "\n   Membership Fees \t\t" << mr << "\t\t" <<  qr << "\t\t" << hyr << "\t\t" << yr;
+		cout << "\n   Gym Trainer Fees\t\t" << gtrmr << "\t\t" << gtrqr << "\t\t" << gtrhyr << "\t\t" << gtryr;
+		cout << "\n   Dietician Fees  \t\t" << drmr << "\t\t" << drqr << "\t\t" << drhyr << "\t\t" << dryr << endl;
+		fin.close();
+		cout << "To return to menu : ";
+		system("Pause");
+		return;
+	}
+}
+
+void RateHandler()
+{
+	while(true)
+	{
+		system("CLS");
+		cout << setw(80) << setfill('-') <<"-\n";
+  		cout << "|" << setw(39) << setfill(' ') <<"Rates Menu";
+  		cout << setw(40) << setfill(' ') << "|\n";
+  		cout << setw(79) << setfill('-') <<"-";
+		cout << "\n1. View Rates";
+		cout << "\n2. Change Rates";
+		cout << "\n3. Back";
+		cout << "\n:";
+		int choice;
+		cin >> choice;
+		switch(choice)
+		{
+			case 1:
+					VRates();
+					break;
+
+			case 2:
+					CRates();
+					break;
+
+			case 3:
+					return;
+					break;
+			
+			default:
+					cout << "\nWrong Option selected, Please Try Again\n";
+					system("PAUSE");
+					break;
+		}
+	}
 }

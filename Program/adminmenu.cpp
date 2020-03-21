@@ -6,8 +6,7 @@ using namespace std;
 
 void TransLogs(string uid);
 void Backup();
-void VRates();
-void CRates();
+void RateHandler();
 void UsersMenu();
 void ComplaintHandler();
 void AttendanceHandler();
@@ -23,13 +22,12 @@ void AdminMenu(string uid)
   		cout << setw(40) << setfill(' ') << "|\n";
   		cout << setw(79) << setfill('-') <<"-";
 		cout << "\n1. Attendance Menu";
-		cout << "\n2. Change Rates";
+		cout << "\n2. Rates Menu";
 		cout << "\n3. Users Menu";
 		cout << "\n4. Access Transaction Logs";
 		cout << "\n5. Create Backups";
-		cout << "\n6. View Rates";
-		cout << "\n7. Complaints/Suggestions Menu";
-		cout << "\n8. Log Out";
+		cout << "\n6. Complaints/Suggestions Menu";
+		cout << "\n7. Log Out";
 		cout << "\n:";
 		cin >> choice;
 		switch(choice)
@@ -38,7 +36,7 @@ void AdminMenu(string uid)
 				AttendanceHandler();
 				break;
 			case 2:
-				CRates();
+				RateHandler();
 				break;
 			case 3:
 				UsersMenu();
@@ -50,12 +48,9 @@ void AdminMenu(string uid)
 				Backup();
 				break;
 			case 6:
-				VRates();
-				break;
-			case 7:
 				ComplaintHandler();
 				break;
-			case 8:
+			case 7:
 				return;
 				break;
 			default:

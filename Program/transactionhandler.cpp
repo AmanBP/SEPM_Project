@@ -8,7 +8,6 @@ using namespace std;
 
 void makemenuheader(string a);
 
-
 string gettime()
 {
     time_t rawtime;

@@ -5,13 +5,20 @@
 #include <stdlib.h>
 using namespace std;
 
-void DD(string a, string b, int c);
 std::string encryptDecrypt(string toEncrypt);
 void Register(int x);
 void ListUsers();
 //void DUser();
 //void Uedit();
 void makemenuheader(string a);
+
+void DD(string a, string b, int c)
+{
+	cout << "\nDetails:";
+	cout << "\nUsername      : " << a;
+	cout << "\nPassword      : " << b;
+	cout << "\nUser Type     : " << c;
+}
 
 void ListUsers()
 {
